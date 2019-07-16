@@ -124,7 +124,7 @@ POST
 
 ### url
 
-/item/all/{bussinessId}/{userId}
+/item/all/{bussinessId}
 
 ### method
 
