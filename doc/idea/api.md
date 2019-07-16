@@ -262,6 +262,29 @@ None
 }
 ```
 
+
+## 保存的地址
+
+### url
+
+/save/address/{userId}/{address}
+
+### method
+
+GET
+
+### 传入参数
+
+address: 地址信息
+
+### 返回参数
+
+```json
+{
+    "code": 0
+}
+```
+
 ## 获取有效代金券信息
 
 ### url
