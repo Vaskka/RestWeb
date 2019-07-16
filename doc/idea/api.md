@@ -160,7 +160,7 @@ None
 
 ### url
 
-/cart/get/{businessId}
+/cart/get/{businessId}/{userId}
 
 ### method
 
