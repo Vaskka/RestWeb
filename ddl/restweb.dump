@@ -26,7 +26,7 @@ CREATE TABLE `Item` (
   `id` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `businessId` varchar(255) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
   `img` varchar(255) DEFAULT NULL,
   KEY `Item_business_id_fk` (`businessId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -75,6 +75,7 @@ DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
   `id` varchar(255) NOT NULL,
   `userId` varchar(255) DEFAULT NULL,
+  `businessId` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cart_user_id_fk` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -113,6 +114,32 @@ LOCK TABLES `cartitem` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `coupn`
+--
+
+DROP TABLE IF EXISTS `coupn`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `coupn` (
+  `id` varchar(255) DEFAULT NULL,
+  `createTime` varchar(255) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `validHours` int(11) DEFAULT NULL,
+  `businessId` varchar(255) DEFAULT NULL,
+  `userId` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `coupn`
+--
+
+LOCK TABLES `coupn` WRITE;
+/*!40000 ALTER TABLE `coupn` DISABLE KEYS */;
+/*!40000 ALTER TABLE `coupn` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `order`
 --
 
@@ -122,6 +149,8 @@ DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `id` varchar(255) NOT NULL,
   `creatorId` varchar(255) DEFAULT NULL,
+  `createTime` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL COMMENT '0-已完成 1-未完成 2-已取消',
   PRIMARY KEY (`id`),
   KEY `order_user_id_fk` (`creatorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -195,10 +224,9 @@ DROP TABLE IF EXISTS `transition`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transition` (
   `id` varchar(255) NOT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
   `orderId` varchar(255) DEFAULT NULL,
   `createTime` varchar(255) DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `transition_order_id_fk` (`orderId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -225,6 +253,7 @@ CREATE TABLE `user` (
   `name` varchar(255) DEFAULT NULL,
   `type` int(11) DEFAULT NULL COMMENT '0-平台用户 1-签约商户 2-管理员\n',
   `password` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -247,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-16 10:38:43
+-- Dump completed on 2019-07-16 12:39:04
