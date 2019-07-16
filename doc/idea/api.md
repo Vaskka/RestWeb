@@ -359,6 +359,32 @@ POST
 }
 ```
 
+## 为某个订单写评论
+
+### url
+
+/order/comment/create/{orderId}
+
+### method
+
+POST
+
+### 传入参数
+
+```json
+{
+    "content": "This is a content"
+}
+```
+
+### 返回参数
+
+```json
+{
+    "code": 0
+}
+```
+
 ## 获取某个指定订单
 
 ### url
@@ -410,6 +436,38 @@ GET
         "status": "COMPLETE" // COMPLETE 已完成 CANCELED 已取消
 
     }
+}
+```
+
+## 获取某个订单的全部评论
+
+### url
+
+/order/comment/get/{orderId}
+
+### 传入参数
+
+orderId: 订单id
+
+### 返回参数
+
+```json
+{
+    "code": 0,
+    "data": [
+        {
+            "id": "sfg43",
+            "user": "Vaskka",
+            "createTime": "2019-07-14 12:30:40",
+            "content": "This is a Content"
+        },
+        {
+            "id": "ehehsfg43",
+            "user": "VaskkaAmber",
+            "createTime": "2019-07-15 12:30:40",
+            "content": "This is a Content lalal"
+        }
+    ]
 }
 ```
 
@@ -472,6 +530,20 @@ None
                     "validHours":  48
                 }
             ],
+            "comment": [
+                {
+                    "id": "sfg43",
+                    "user": "Vaskka",
+                    "createTime": "2019-07-14 12:30:40",
+                    "content": "This is a Content"
+                },
+                {
+                    "id": "ehehsfg43",
+                    "user": "VaskkaAmber",
+                    "createTime": "2019-07-15 12:30:40",
+                    "content": "This is a Content lalal"
+                }
+        ],
             "status": "COMPLETE" // COMPLETE 已完成 CANCELED 已取消
         },
         ...
@@ -557,3 +629,4 @@ None
     ]
 }
 ```
+
