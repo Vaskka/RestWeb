@@ -124,7 +124,7 @@ POST
 
 ### url
 
-/item/all/{bussinessId}
+/item/all/{bussinessId}/{userId}
 
 ### method
 
@@ -139,6 +139,7 @@ None
 ```json
 {
     "code": 0, // 0-success 1-用户名或密码错误
+    "cartId": "x7dsfh23",
     "data": [
         {
             "id": "c34rs/gb",
