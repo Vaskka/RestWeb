@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface OrderItemDao extends JpaRepository<OrderItemEntity, String> {
 
-    List<OrderItemEntity> findByOrderId(String orderId);
+    List<OrderItemEntity> findByOrderid(String orderId);
 }

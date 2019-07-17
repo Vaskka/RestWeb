@@ -20,7 +20,7 @@ public class BusinessService {
 
 
     public List<ItemEntity> getBusinessAllItems(String businessId) {
-        return itemDao.findByBusinessId(businessId);
+        return itemDao.findByBusinessid(businessId);
     }
 
 

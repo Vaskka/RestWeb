@@ -45,7 +45,8 @@ public class OrderService {
 
         if (entityOptional.isPresent()) {
             OrderEntity entity = entityOptional.get();
-            entity.setStatus(2);
+            entity.setStatus("2");
+            orderDao.save(entity);
             return;
         }
 
@@ -57,7 +58,7 @@ public class OrderService {
 
         if (entityOptional.isPresent()) {
             OrderEntity entity = entityOptional.get();
-            entity.setStatus(0);
+            entity.setStatus("0");
 
             List<ItemEntity> middle = fromOrderIdGetList(orderId);
 
@@ -75,7 +76,7 @@ public class OrderService {
         if (entityOptional.isPresent()) {
             OrderEntity entity = entityOptional.get();
 
-            UserEntity userEntity = userDao.findById(entity.getId()).get();
+            UserEntity userEntity = userDao.findById(entity.getCreatorid()).get();
             List<ItemEntity> middle = fromOrderIdGetList(orderId);
 
             float price = CommonUtil.calPrice(middle);
@@ -84,25 +85,27 @@ public class OrderService {
 
             BusinessEntity businessEntity = null;
             if (middle.size() != 0) {
-                businessEntity = businessDao.findById(middle.get(0).getBusinessId()).get();
+                businessEntity = businessDao.findById(middle.get(0).getBusinessid()).get();
             }
 
             String status = fromStatusGetStatusText(entity.getStatus());
 
-            return new InnerOrder(entity.getId(), userEntity, middle, price, businessEntity, entity.getCreateTime(), status);
+            return new InnerOrder(entity.getId(), userEntity, middle, price, businessEntity, entity.getCreatetime(), status);
 
         }
 
         throw new RestWebRuntimeException("订单不存在");
     }
 
-    private String fromStatusGetStatusText(Integer status) {
+    private String fromStatusGetStatusText(String status) {
 
         switch (status) {
-            case 0:
+            case "0":
                 return "COMPLETE";
-            case 1:
-                return "CANCELED";
+            case "1":
+                return "UNPAY";
+            case "2":
+                return "CANCEL";
         }
 
         return null;
@@ -110,8 +113,8 @@ public class OrderService {
 
     private List<ItemEntity> fromOrderIdGetList(String orderId) {
         List<ItemEntity> middle = new ArrayList<>();
-        for (OrderItemEntity i : orderItemDao.findByOrderId(orderId)) {
-            Optional<ItemEntity> optionalItemEntity = itemDao.findById(i.getId());
+        for (OrderItemEntity i : orderItemDao.findByOrderid(orderId)) {
+            Optional<ItemEntity> optionalItemEntity = itemDao.findById(i.getItemid());
             ItemEntity _i = optionalItemEntity.orElse(null);
             middle.add(_i);
         }

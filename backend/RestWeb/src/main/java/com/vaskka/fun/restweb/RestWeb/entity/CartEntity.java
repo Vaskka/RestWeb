@@ -17,7 +17,7 @@ public class CartEntity {
     @Id
     private String id;
 
-    private String userId;
+    private String userid;
 
-    private String businessId;
+    private String businessid;
 }

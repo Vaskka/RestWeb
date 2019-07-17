@@ -30,15 +30,15 @@ public class CouponService {
     }
 
     public List<CouponEntity> getAllCoupon(String userId, String businessId) {
-        List<CouponEntity> list = couponDao.findByUserIdAndBusinessIdAndStatus(userId, businessId, 1);
+        List<CouponEntity> list = couponDao.findByUseridAndBusinessidAndStatus(userId, businessId, 1);
         List<CouponEntity> res = new ArrayList<>();
         Date date = java.util.Calendar.getInstance(java.util.Locale.CHINA).getTime();
 
         for (CouponEntity entity : list) {
-            Date createTime = CommonUtil.fromStringToDate(entity.getCreateTime());
+            Date createTime = CommonUtil.fromStringToDate(entity.getCreatetime());
             Calendar rightNow = Calendar.getInstance();
             rightNow.setTime(createTime);
-            rightNow.add(Calendar.HOUR,entity.getValidHours());
+            rightNow.add(Calendar.HOUR,entity.getValidhours());
             Date validTime = rightNow.getTime();
 
             // 没过期加进去

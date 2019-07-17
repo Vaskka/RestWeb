@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CommentDao extends JpaRepository<CommentEntity, String> {
 
-    List<CommentEntity> findByUserIdAndOrderId(String userId, String orderId);
+    List<CommentEntity> findByUseridAndOrderid(String userId, String orderId);
 }

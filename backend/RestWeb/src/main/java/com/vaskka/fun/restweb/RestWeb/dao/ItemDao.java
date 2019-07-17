@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ItemDao extends JpaRepository<ItemEntity, String> {
 
-    List<ItemEntity> findByBusinessId(String businessId);
+    List<ItemEntity> findByBusinessid(String businessId);
 
 }

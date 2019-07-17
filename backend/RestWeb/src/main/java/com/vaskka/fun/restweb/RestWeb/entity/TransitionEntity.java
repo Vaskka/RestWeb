@@ -21,7 +21,7 @@ public class TransitionEntity {
 
     private Float price;
 
-    private String orderId;
+    private String orderid;
 
-    private String createTime;
+    private String createtime;
 }

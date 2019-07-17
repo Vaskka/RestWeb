@@ -19,7 +19,7 @@ public class OrderItemEntity {
     @Id
     private String id;
 
-    private String orderId;
+    private String orderid;
 
-    private String itemId;
+    private String itemid;
 }

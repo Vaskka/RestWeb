@@ -18,6 +18,20 @@ public class CartController {
     @Resource
     private CartService cartService;
 
+    @ApiOperation(value = "添加商品到购物车")
+    @ResponseBody
+    @RequestMapping(value = "/add/item/{itemid}/{cartId}", method = RequestMethod.GET)
+    public Map<String, Object> insertIntoCart(@PathVariable(value = "itemid") String itemid,
+                                              @PathVariable(value = "cartId") String cartId) {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("code", 0);
+        cartService.addIntoCart(itemid, cartId);
+        return map;
+
+    }
+
+
     @ApiOperation(value = "获取购物车全部商品")
     @ResponseBody
     @RequestMapping(value = "/item/all/{businessId}/{userId}", method = RequestMethod.GET)

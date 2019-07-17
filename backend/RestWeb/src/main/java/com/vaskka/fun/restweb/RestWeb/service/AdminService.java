@@ -42,7 +42,7 @@ public class AdminService {
             String orderId = entity.getId();
 
             InnerOrder innerOrder = orderService.getUserOrderDetail(orderId);
-            res.add(AdminInnerOrder.fromInnerOrderGetThis(innerOrder, commentService.getList(orderId, entity.getCreatorId())));
+            res.add(AdminInnerOrder.fromInnerOrderGetThis(innerOrder, commentService.getList(orderId, entity.getCreatorid())));
         }
 
         return res;

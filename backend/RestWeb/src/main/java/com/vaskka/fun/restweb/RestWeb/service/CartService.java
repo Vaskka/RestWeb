@@ -35,8 +35,12 @@ public class CartService {
     @Resource
     private CartDao cartDao;
 
+    public void addIntoCart(String itemid, String cartId) {
+        cartItemDao.save(new CartItemEntity(CommonUtil.getUniqueId(), cartId, itemid));
+    }
+
     public String getCartId(String busniessId, String userId) throws RestWebRuntimeException {
-        List<CartEntity> res = cartDao.findByBusinessIdAndUserId(busniessId, userId);
+        List<CartEntity> res = cartDao.findByBusinessidAndUserid(busniessId, userId);
         if (res.size() == 0) {
             String id = CommonUtil.getUniqueId();
             cartDao.save(new CartEntity(id, userId, busniessId));
@@ -49,14 +53,11 @@ public class CartService {
     public List<ItemEntity> getItemsFromCartId(String cartId) {
         List<ItemEntity> res = new ArrayList<>();
 
-        List<CartItemEntity> temp = cartItemDao.findByCartId(cartId);
+        List<CartItemEntity> temp = cartItemDao.findByCartid(cartId);
 
-        if (temp.size() == 0) {
-
-        }
 
         for (CartItemEntity entity : temp) {
-            Optional<ItemEntity> op = itemDao.findById(entity.getId());
+            Optional<ItemEntity> op = itemDao.findById(entity.getItemid());
             op.ifPresent(res::add);
         }
 
@@ -66,7 +67,7 @@ public class CartService {
     public PostInnerItem postOrder(String cartId) {
         List<ItemEntity> res = this.getItemsFromCartId(cartId);
 
-        String userId = cartDao.findById(cartId).get().getUserId();
+        String userId = cartDao.findById(cartId).get().getUserid();
         String createTime = CommonUtil.getNowTime();
 
         String orderId = CommonUtil.getUniqueId();
@@ -75,13 +76,13 @@ public class CartService {
             orderItemDao.save(new OrderItemEntity(CommonUtil.getUniqueId(), orderId, entity.getId()));
         }
 
-        orderDao.save(new OrderEntity(orderId, userId, createTime, 1));
+        orderDao.save(new OrderEntity(orderId, userId, createTime, "1"));
 
-        return new PostInnerItem(res, calPrice(res));
+        return new PostInnerItem(res, calPrice(res), orderId);
     }
 
     public void cleanCart(String cartId) {
-        cartItemDao.deleteByCartId(cartId);
+        cartItemDao.deleteByCartid(cartId);
     }
 
 

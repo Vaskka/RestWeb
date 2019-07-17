@@ -17,4 +17,5 @@ public class PostInnerItem {
 
     private Float price;
 
+    private String orderId;
 }

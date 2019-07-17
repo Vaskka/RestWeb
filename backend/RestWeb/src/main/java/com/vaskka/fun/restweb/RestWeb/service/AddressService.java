@@ -23,7 +23,7 @@ public class AddressService {
     public List<String> getAddresses(String userId) {
         List<String> res = new ArrayList<>();
 
-        for (UserAddressEntity entity : userAddressDao.findByUserId(userId)) {
+        for (UserAddressEntity entity : userAddressDao.findByUserid(userId)) {
             res.add(entity.getAddress());
         }
 

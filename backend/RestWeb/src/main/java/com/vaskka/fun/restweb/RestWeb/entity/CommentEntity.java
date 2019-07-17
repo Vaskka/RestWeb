@@ -20,11 +20,11 @@ public class CommentEntity {
 
     private String content;
 
-    private String createTime;
+    private String createtime;
 
-    private String userId;
+    private String userid;
 
-    private String orderId;
+    private String orderid;
 
 
 }

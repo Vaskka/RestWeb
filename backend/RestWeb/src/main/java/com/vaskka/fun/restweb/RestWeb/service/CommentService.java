@@ -26,6 +26,6 @@ public class CommentService {
     }
 
     public List<CommentEntity> getList(String orderId, String userId) {
-        return commentDao.findByUserIdAndOrderId(userId, orderId);
+        return commentDao.findByUseridAndOrderid(userId, orderId);
     }
 }

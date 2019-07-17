@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CommonUtil {
 
-    private static final String pattern = "YYYY-MM-dd HH-mm-ss";
+    private static final String pattern = "yyyy-MM-dd HH-mm-ss";
 
     /**
      * 获取本地时间String

@@ -19,8 +19,8 @@ public class CartItemEntity {
     @Id
     private String id;
 
-    private String cartId;
+    private String cartid;
 
-    private String itemId;
+    private String itemid;
 
 }

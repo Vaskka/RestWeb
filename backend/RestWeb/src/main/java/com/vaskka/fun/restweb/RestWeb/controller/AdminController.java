@@ -17,7 +17,7 @@ import java.util.Map;
  **/
 
 @RestController
-@Api(description = "评论接口")
+@Api(description = "ADMIN接口")
 @RequestMapping(value = "/main")
 public class AdminController {
 

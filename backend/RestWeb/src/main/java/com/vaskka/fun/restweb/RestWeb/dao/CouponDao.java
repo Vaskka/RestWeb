@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CouponDao extends JpaRepository<CouponEntity, String> {
 
-    List<CouponEntity> findByUserIdAndBusinessIdAndStatus(String userId, String businessId, Integer Status);
+    List<CouponEntity> findByUseridAndBusinessidAndStatus(String userId, String businessId, Integer Status);
 }

@@ -17,7 +17,7 @@ public class UserAddressEntity {
     @Id
     private String id;
 
-    private String userId;
+    private String userid;
 
     private String address;
 }

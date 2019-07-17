@@ -20,15 +20,15 @@ public class CouponEntity {
 
     private Float price;
 
-    private String createTime;
+    private String createtime;
 
-    private Integer validHours;
+    private Integer validhours;
 
-    private String userId;
+    private String userid;
 
-    private String businessId;
+    private String businessid;
 
     private Integer status;
 
-    private String useOrderId;
+    private String useorderid;
 }

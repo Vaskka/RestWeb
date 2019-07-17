@@ -21,7 +21,7 @@ public class BusinessController {
 
 
 
-    @ApiOperation(value = "获取全部商家")
+    @ApiOperation(value = "获取商家下全部商品")
     @ResponseBody
     @RequestMapping(value = "/item/all/{businessId}", method = RequestMethod.GET)
     public Map<String, Object> getBusiness(@PathVariable(value = "businessId") String businessId) {

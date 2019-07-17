@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface UserAddressDao extends JpaRepository<UserAddressEntity, String> {
 
-    List<UserAddressEntity> findByUserId(String userId);
+    List<UserAddressEntity> findByUserid(String userId);
 }

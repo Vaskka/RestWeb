@@ -1,6 +1,5 @@
 package com.vaskka.fun.restweb.RestWeb.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,19 +7,25 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "order")
+@Entity(name = "orders")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class OrderEntity {
 
     @Id
     private String id;
 
-    private String creatorId;
+    private String creatorid;
 
-    private String createTime;
+    private String createtime;
 
-    private Integer status;
+    private String status;
+
+    public OrderEntity(String id, String creatorid, String createtime, String status) {
+        this.id = id;
+        this.creatorid = creatorid;
+        this.createtime = createtime;
+        this.status = status;
+    }
 }

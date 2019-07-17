@@ -21,7 +21,7 @@ public class ItemEntity {
 
     private String name;
 
-    private String businessId;
+    private String businessid;
 
     private Float price;
 
