@@ -9,5 +9,5 @@ public interface CartDao extends JpaRepository<CartEntity, String> {
 
     List<CartEntity> findByBusinessIdAndUserId(String businessId, String userId);
 
-    List<CartEntity> findByUserId(String userId);
+    List<CartEntity> findsByUserId(String userId);
 }

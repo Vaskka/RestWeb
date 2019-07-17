@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static com.vaskka.fun.restweb.RestWeb.util.CommonUtil.calPrice;
+
 @Service
 public class CartService {
 
@@ -48,6 +50,11 @@ public class CartService {
         List<ItemEntity> res = new ArrayList<>();
 
         List<CartItemEntity> temp = cartItemDao.findByCartId(cartId);
+
+        if (temp.size() == 0) {
+
+        }
+
         for (CartItemEntity entity : temp) {
             Optional<ItemEntity> op = itemDao.findById(entity.getId());
             op.ifPresent(res::add);
@@ -74,15 +81,8 @@ public class CartService {
     }
 
     public void cleanCart(String cartId) {
-
+        cartItemDao.deleteByCartId(cartId);
     }
 
-    private static float calPrice(List<ItemEntity> res) {
-        float price = 0;
-        for (ItemEntity entity : res) {
-            price += entity.getPrice();
-        }
 
-        return price;
-    }
 }

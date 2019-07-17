@@ -388,7 +388,7 @@ POST
 
 ### url
 
-/order/comment/create/{orderId}
+/order/comment/create/{orderId}/{userId}
 
 ### method
 
@@ -414,7 +414,7 @@ POST
 
 ### url
 
-/order/detail
+/order/detail/{orderId}
 
 ### method
 
@@ -422,11 +422,7 @@ GET
 
 ### 传入参数
 
-```json
-{
-    "orderId": "xc1fdsad"
-}
-```
++ orderId: 订单id
 
 ### 返回参数
 
@@ -468,7 +464,7 @@ GET
 
 ### url
 
-/order/comment/get/{orderId}
+/order/comment/get/{orderId}/{userId}
 
 ### 传入参数
 
@@ -541,20 +537,6 @@ None
                 "headImg": "https://vaskka.com/static/xxx.jpg"
             },
             "createTime": "2019-07-15 12:40:40",
-            "coupon": [
-                {
-                    "id": "s1cefds",
-                    "price": 12.5,
-                    "createTime": "2019-07-03 12:30:30",
-                    "validHours":  24
-                },
-                {
-                    "id": "c4543",
-                    "price": 30,
-                    "createTime": "2019-07-12 12:35:44",
-                    "validHours":  48
-                }
-            ],
             "comment": [
                 {
                     "id": "sfg43",
