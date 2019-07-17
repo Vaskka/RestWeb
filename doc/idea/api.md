@@ -124,7 +124,7 @@ POST
 
 ### url
 
-/item/all/{bussinessId}/{userId}
+/item/all/{bussinessId}
 
 ### method
 
@@ -290,7 +290,7 @@ address: 地址信息
 
 ### url
 
-/info/coupon
+/info/coupon/{userId}/{businessId}
 
 ### method
 
@@ -298,7 +298,8 @@ GET
 
 ### 传入参数
 
-None
++ userId: 用户id
++ businessId: 商家id
 
 ### 返回参数
 
