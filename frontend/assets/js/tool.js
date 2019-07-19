@@ -1,12 +1,12 @@
 const TEST_HOST = "http://localhost:8080/main";
 
-const MAIN_HOST = "https://www.vaskka.com/fun/main";
+const MAIN_HOST = "/backend/main";
 
 
 // get request
 function get(_url, data, _success, _error) {
 
-    _url = TEST_HOST + _url;
+    _url = MAIN_HOST + _url;
 
     data_string = "";
 
@@ -30,7 +30,7 @@ function get(_url, data, _success, _error) {
 // post request
 function post(_url, data, body, _success, _error) {
     
-    _url = TEST_HOST + _url;
+    _url = MAIN_HOST + _url;
 
     data_string = "";
 
