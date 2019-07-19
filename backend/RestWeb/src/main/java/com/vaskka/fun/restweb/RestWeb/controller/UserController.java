@@ -3,7 +3,6 @@ package com.vaskka.fun.restweb.RestWeb.controller;
 import com.vaskka.fun.restweb.RestWeb.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import net.minidev.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,44 +27,51 @@ public class UserController {
 
     @ApiOperation(value = "注册用户")
     @ResponseBody
-    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
-    public Map<String, Object> register(@RequestBody JSONObject body) {
+    @RequestMapping(value = "/user/register/{phone}/{name}/{password}/{repassword}/{type}", method = RequestMethod.GET)
+    public Map<String, Object> register(@PathVariable(value = "phone") String phone,
+                                        @PathVariable(value = "name") String name,
+                                        @PathVariable(value = "password") String password,
+                                        @PathVariable(value = "repassword") String repsw,
+                                        @PathVariable(value = "type") Integer type) {
         Map<String, Object> map = new HashMap<>();
-
-        String phone = body.getAsString("phone");
-
-        String name = body.getAsString("name");
-
-        String password = body.getAsString("password");
-
-        String repsw = body.getAsString("repassword");
-
-        Integer type = body.getAsNumber("type").intValue();
 
         if (!password.equals(repsw)) {
             map.put("code", 1);
             return map;
         }
 
-        map.put("code", 0);
-        map.put("user_id", userService.register(phone, name, password, type));
+
+        String userId =  userService.register(phone, name, password, type);
+
+        setMapFromUserId(map, userId);
 
         return map;
     }
 
-    @ApiOperation(value = "注册用户")
+    @ApiOperation(value = "登陆")
     @ResponseBody
-    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public Map<String, Object> login(@RequestBody JSONObject body) {
+    @RequestMapping(value = "/user/login/{phone}/{password}", method = RequestMethod.GET)
+    public Map<String, Object> login(@PathVariable(value = "phone") String phone, @PathVariable("password") String password) {
         Map<String, Object> map = new HashMap<>();
 
-        String phone = body.getAsString("phone");
 
-        String password = body.getAsString("password");
+        String userId =  userService.login(phone, password);
 
-        map.put("code", 0);
-        map.put("user_id", userService.login(phone, password));
-
+        setMapFromUserId(map, userId);
         return map;
     }
+
+    private void setMapFromUserId(Map<String, Object> map, String userId) {
+        if (userId == null) {
+            map.put("code", 1);
+            map.put("user_id", null);
+        }
+        else {
+            map.put("code", 0);
+            map.put("user_id", userId);
+        }
+        
+
+    }
+
 }

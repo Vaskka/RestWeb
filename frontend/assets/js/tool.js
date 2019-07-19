@@ -1,6 +1,7 @@
-const TEST_HOST = "http://localhost:8080"
+const TEST_HOST = "http://localhost:8080/main";
 
-const MAIN_HOST = "https://www.vaskka.com/fun"
+const MAIN_HOST = "https://www.vaskka.com/fun/main";
+
 
 // get request
 function get(_url, data, _success, _error) {
@@ -16,6 +17,8 @@ function get(_url, data, _success, _error) {
 
     _url += data_string;
 
+    console.log(_url);
+
     $.ajax({
         url: _url,
         type: "GET",
@@ -25,7 +28,7 @@ function get(_url, data, _success, _error) {
 }
 
 // post request
-function post(url, data, body) {
+function post(_url, data, body, _success, _error) {
     
     _url = TEST_HOST + _url;
 
@@ -41,6 +44,9 @@ function post(url, data, body) {
     $.ajax({
         url: _url,
         type: "POST",
+        headers:{
+            "Content-Type": "application/json; charset=utf-8",
+        },
         data: body,
         success: _success,
         error: _error

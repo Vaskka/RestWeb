@@ -6,12 +6,15 @@ var user_id = null;
 if (params.length > 1) {
     user_id = params[params.length - 1];
 }
+else {
+    window.location.href = "login.html";
+}
 
 // if (user_id == undefined) {
 //     user_id = null;
 // }
 
-data = get("/main/get/main/business", [], function(_data) {
+get("/main/get/main/business", [], function(_data) {
 
     for (item of _data.data) {
         item.user_id = user_id;
