@@ -29,7 +29,7 @@ public class BusinessController {
 
         map.put("code", 0);
         map.put("data", businessService.getBusinessAllItems(businessId));
-
+        map.put("business", businessService.getBusinessName(businessId));
         return map;
 
     }

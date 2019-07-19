@@ -1349,7 +1349,7 @@ blockquote {
 
 /*--------- 1.12 Breadcrumb Starts ---------- */
 .breadcrumb-bg {
-    background-image: url("../img/extra/breadcrumb-1.jpg");
+    background-color: #F6F7F2;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 80px 0 100px;

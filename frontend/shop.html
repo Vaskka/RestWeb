@@ -25,8 +25,40 @@
         <!-- Custom CSS -->
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 
-        <!-- Color CSS --> 
+        <link href="assets/css/cart.css" rel="stylesheet" type="text/css">
 
+        <!-- Color CSS --> 
+        <!-- JS Global -->
+        <script src="assets/js/plugin/jquery-2.2.4.min.js"></script>   
+        <script src="assets/js/plugin/bootstrap.min.js"></script>
+        <script src="assets/js/plugin/bootstrap-select.min.js"></script>       
+        <script src="assets/js/plugin/owl.carousel.min.js"></script>
+        <script src="assets/js/plugin/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.3/jsrender.min.js"></script>
+        <script src="assets/js/tool.js"></script>
+
+        <style>
+            .error-css-icon { 
+                display: inline-block; 
+                width: 34px;
+                height:5px; 
+                background: #ff8400;
+                line-height: 0;
+                font-size:0;
+                vertical-align: middle;
+                transform: rotate(45deg);
+
+            }
+
+            .error-css-icon:after{
+                content:'';
+                display:block;
+                width: 34px;
+                height:5px; 
+                background: #ff8400;
+                transform: rotate(-90deg);
+            }
+        </style>
         <!--[if lt IE 9]>
         <script src="assets/js/plugin/html5shiv.js"></script>
         <script src="assets/js/plugin/respond.js"></script>
@@ -66,175 +98,25 @@
                     </div>  
             </header>
             <!-- / Main Header Ends -->   
+            <section class="breadcrumb-bg" id="business_name"> 
+            <script type="text/x-jsrender" id="get-business-template">
+               
+                <div class="theme-container container ">                       
+                    <div class="site-breadcumb white-clr">                        
+                        <h2 class="section-title"> <span class="light-font"> {{:name}} </span> </h2>
+                    </div>  
+                </div>
+
+            </script>
+            </section>
             <!-- Shop Starts-->
             <section class="shop-wrap sec-space-bottom">
                 <div class="container rel-div">
                     <div class="tab-content shop-content">
                         <div>
-                            <div class="row"> 
-                                <div class="col-md-6 col-sm-12"> 
-                                    <div class="deal-item list-view">
-                                        <div class="deal-icons">                                         
-                                            <a href="#" class="fa fa-heart"></a>
-                                            <a href="#" class="fa fa-shopping-basket"></a>
-                                            <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>                                      
-                                        </div>
-                                        <div class="deal-content">
-                                            <div class="text-right">
-                                                <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                            </div>
-                                            <div class="deal-text">
-                                                <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                                <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font">fresh </span> <strong>rasberry </strong> </a> </h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
-                                                <div class="price pt-15"> 
-                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                                </div>
-                                            </div>
-                                            <div class="img"> <img alt="" src="assets/img/extra/deal-1.png"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-sm-12"> 
-                                    <div class="deal-item list-view">
-                                        <div class="deal-icons">                                         
-                                            <a href="#" class="fa fa-heart"></a>
-                                            <a href="#" class="fa fa-shopping-basket"></a>
-                                            <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>                                      
-                                        </div>
-                                        <div class="deal-content">
-                                            <div class="text-right">
-                                                <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                            </div>
-                                            <div class="deal-text">
-                                                <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                                <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font">fresh </span> <strong>cherry </strong> </a> </h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
-                                                <div class="price pt-15"> 
-                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                                </div>
-                                            </div>
-                                            <div class="img"> <img alt="" src="assets/img/products/3.png"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6 col-sm-12"> 
-                                    <div class="deal-item list-view">
-                                        <div class="deal-icons">                                         
-                                            <a href="#" class="fa fa-heart"></a>
-                                            <a href="#" class="fa fa-shopping-basket"></a>
-                                            <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>                                      
-                                        </div>
-                                        <div class="deal-content">
-                                            <div class="text-right">
-                                                <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                            </div>
-                                            <div class="deal-text">
-                                                <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                                <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font">fresh </span> <strong>mushroom </strong> </a> </h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
-                                                <div class="price pt-15"> 
-                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                                </div>
-                                            </div>
-                                            <div class="img"> <img alt="" src="assets/img/products/7.png"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-sm-12"> 
-                                    <div class="deal-item list-view">
-                                        <div class="deal-icons">                                         
-                                            <a href="#" class="fa fa-heart"></a>
-                                            <a href="#" class="fa fa-shopping-basket"></a>
-                                            <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>                                      
-                                        </div>
-                                        <div class="deal-content">
-                                            <div class="text-right">
-                                                <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                            </div>
-                                            <div class="deal-text">
-                                                <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                                <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font">fresh </span> <strong>pepper </strong> </a> </h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
-                                                <div class="price pt-15"> 
-                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                                </div>
-                                            </div>
-                                            <div class="img"> <img alt="" src="assets/img/products/8.png"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6 col-sm-12"> 
-                                    <div class="deal-item list-view">
-                                        <div class="deal-icons">                                         
-                                            <a href="#" class="fa fa-heart"></a>
-                                            <a href="#" class="fa fa-shopping-basket"></a>
-                                            <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>                                      
-                                        </div>
-                                        <div class="deal-content">
-                                            <div class="text-right">
-                                                <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                            </div>
-                                            <div class="deal-text">
-                                                <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                                <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font">fresh </span> <strong>cabbage </strong> </a> </h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
-                                                <div class="price pt-15"> 
-                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                                </div>
-                                            </div>
-                                            <div class="img"> <img alt="" src="assets/img/products/2.png"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-sm-12"> 
-                                    <div class="deal-item list-view">
-                                        <div class="deal-icons">                                         
-                                            <a href="#" class="fa fa-heart"></a>
-                                            <a href="#" class="fa fa-shopping-basket"></a>
-                                            <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>                                      
-                                        </div>
-                                        <div class="deal-content">
-                                            <div class="text-right">
-                                                <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                            </div>
-                                            <div class="deal-text">
-                                                <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                                <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font">fresh </span> <strong>salad </strong> </a> </h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
-                                                <div class="price pt-15"> 
-                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                                </div>
-                                            </div>
-                                            <div class="img"> <img alt="" src="assets/img/products/4.png"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="rel-div pt-50">
-                                <div class="divider-full-1"></div>
-                                <div class="nav-page">
-                                    <a href="#" class="fa fa-long-arrow-left left"></a> 
-                                    <a href="#" class="fa fa-long-arrow-right right"></a> 
-                                </div>
-                            </div>                            
-
-                            <div class="pagination-wrap">
-                                <ul class="pagintn">                                  
-                                    <li><a href="#">01</a></li>
-                                    <li><a href="#">02</a></li>
-                                    <li><a href="#">03</a></li>
-                                    <li><a href="#">04</a></li>
-                                    <li><a href="#">05</a></li>
-                                    <li><a href="#">...</a></li>
-                                    <li><a href="#">15</a></li>                                    
-                                </ul>
+                            <div class="row" id="items"> 
+                                <!-- item -->
+                                <!-- /item -->
                             </div>
                         </div>
                     </div>
@@ -246,80 +128,29 @@
 
             <!-- FOOTER -->
             <footer class="page-footer"> 
-                <section class="sec-space light-bg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-12 footer-widget">
-                                <div class="main-logo">
-                                    <a href="index.html"> <strong>naturix <img src="assets/img/icons/logo-icon.png" alt="" /> </strong> <span class="light-font">farmfood</span>  </a>
-                                    <span class="medium-font">ORGANIC STORE</span>
-                                </div>
-                                <span class="divider-2"></span>
-                                <div class="text-widget">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                                    <ul>
-                                        <li> <i class="fa fa-map-marker"></i> <span> <strong>100 highland ave,</strong> california, united state </span> </li>
-                                        <li> <i class="fa fa-envelope-square"></i> <span><a href="#">contact@naturix.com</a> </span> </li>
-                                        <li> <i class="fa fa-phone-square"></i> <span><a href="#">www.naturix.com</a> </span> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">naturix  </span> <strong>information </strong> </h2>
-                                <span class="divider-2"></span>
-                                <ul class="list">
-                                    <li> <a href="#"> about our shop </a> </li>
-                                    <li> <a href="#"> top sellers </a> </li>
-                                    <li> <a href="#"> our blog </a> </li>
-                                    <li> <a href="#"> new products </a> </li>
-                                    <li> <a href="#"> secure shopping </a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">my  </span> <strong>account </strong> </h2>
-                                <span class="divider-2"></span>
-                                <ul class="list">
-                                    <li> <a href="my-account.html"> my account </a> </li>
-                                    <li><a href="account-information.html"> Account Information </a></li>
-                                    <li><a href="address-book.html"> Address Books</a></li>
-                                    <li><a href="order-history.html"> Order History</a></li>
-                                    <li><a href="review-rating.html"> Reviews and Ratings</a></li>
-                                    <li><a href="return.html"> Returns Requests</a></li>
-                                    <li><a href="newsletter.html"> Newsletter</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3 col-sm-4 footer-widget">
-                                <h2 class="title-1">  <span class="light-font">photo  </span> <strong>instagram </strong> </h2>
-                                <span class="divider-2"></span>
-                                <ul class="instagram-widget">
-                                    <li> <a href="#"> <img src="assets/img/extra/80x80-1.jpg" alt="" /> </a> </li>
-                                    <li> <a href="#"> <img src="assets/img/extra/80x80-2.jpg" alt="" /> </a> </li>
-                                    <li> <a href="#"> <img src="assets/img/extra/80x80-3.jpg" alt="" /> </a> </li>
-                                    <li> <a href="#"> <img src="assets/img/extra/80x80-4.jpg" alt="" /> </a> </li>
-                                    <li> <a href="#"> <img src="assets/img/extra/80x80-5.jpg" alt="" /> </a> </li>
-                                    <li> <a href="#"> <img src="assets/img/extra/80x80-6.jpg" alt="" /> </a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+
                 <section class="footer-bottom">
                     <div class="pattern"> 
                         <img alt="" src="assets/img/icons/white-pattern.png">
                     </div>
                     <div id="to-top" class="to-top"> <i class="fa fa-arrow-circle-o-up"></i> </div>
+                    <!-- cart list -->
+                    <h3  style="text-align: center;">购物车</h3>
+                    <div class="container" id="cart-items">
+                         
+
+                    </div>
+
+                    <!--结算-->
+                    <div class="slide" style="text-align: center;">
+                        <a href="#" class="slide-btn"> 结算 </a>  
+                    </div>
+                    <!--/结算-->
+
                     <div class="container ptb-50">
                         <div class="row">
                             <div class="col-md-6 col-sm-5">
-                                <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.naturix.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-                            </div>
-                            <div class="col-md-6 col-sm-7">
-                                <ul class="primary-navbar footer-menu">
-                                    <li> <a href="#">contact us </a> </li>
-                                    <li> <a href="#">term of use  </a> </li>
-                                    <li> <a href="#">site map  </a> </li>
-                                    <li> <a href="#">privacy policy</a> </li>
-                                </ul>
+                                <p>Copyright &copy; 2017.Vaskka Inc. All rights reserved.</p>
                             </div>
                         </div>
                     </div>
@@ -332,121 +163,73 @@
         </main>
         <!-- /WRAPPER -->
 
-        <!-- Product Preview Popup -->
-        <section class="modal fade" id="product-preview" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg product-modal">
-                <div class="modal-content">
-                    <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="#"> <i class=" fa fa-close"></i> </a>                 
 
-                    <div class="product-single pb-50 clearfix">
-                        <!-- Single Products Slider Starts --> 
-                        <div class="col-lg-6 col-sm-8 col-sm-offset-2 col-lg-offset-0 pt-50">
-                            <div class="prod-slider sync1">
-                                <div class="item"> 
-                                    <img src="assets/img/products/prod-single-1.png" alt="">
-                                    <a href="assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div>
-                                <div class="item"> 
-                                    <img src="assets/img/products/prod-single-2.png" alt=""> 
-                                    <a href="assets/img/products/prod-big-2.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div>
-                                <div class="item"> 
-                                    <img src="assets/img/products/prod-single-3.png" alt=""> 
-                                    <a href="assets/img/products/prod-big-3.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div> 
-                                <div class="item"> 
-                                    <img src="assets/img/products/prod-single-1.png" alt=""> 
-                                    <a href="assets/img/products/prod-big-1.png" data-gal="prettyPhoto[prettyPhoto]" title="Product" class="caption-link"><i class="arrow_expand"></i></a>
-                                </div> 
-                            </div>
-
-                            <div  class="sync2">
-                                <div class="item"> <a href="#"> <img src="assets/img/products/thumb-1.png" alt=""> </a> </div>
-                                <div class="item"> <a href="#"> <img src="assets/img/products/thumb-2.png" alt=""> </a> </div>
-                                <div class="item"> <a href="#"> <img src="assets/img/products/thumb-3.png" alt=""> </a> </div>
-                                <div class="item"> <a href="#"> <img src="assets/img/products/thumb-1.png" alt=""> </a> </div>
-                            </div>
-                        </div>
-                        <!-- Single Products Slider Ends --> 
-
-                        <div class="col-lg-6 pt-50">
-                            <div class="product-content block-inline">
-
-                                <div class="tag-rate">
-                                    <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                    <div class="rating">
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="star active"></span>
-                                        <span class="fsz-12"> Based on 25 reviews</span>
-                                    </div>
-                                </div>
-
-                                <div class="single-caption"> 
-                                    <h3 class="section-title">
-                                        <a href="#"> <span class="light-font"> organic </span>  <strong>pinapple</strong></a>
-                                    </h3>
-                                    <span class="divider-2"></span>
-                                    <p class="price"> 
-                                        <strong class="clr-txt fsz-20">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                    </p>
-
-                                    <div class="fsz-16">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                                    </div>
-
-                                    <div class="prod-btns">
-                                        <div class="quantity">
-                                            <button class="btn minus"><i class="fa fa-minus-circle"></i></button>
-                                            <input title="Qty" placeholder="03" class="form-control qty" type="text">
-                                            <button class="btn plus"><i class="fa fa-plus-circle"></i></button>
-                                        </div>
-                                        <div class="sort-dropdown">
-                                            <div class="search-selectpicker selectpicker-wrapper">
-                                                <select class="selectpicker input-price"  data-width="100%"
-                                                        data-toggle="tooltip">
-                                                    <option>Kilo</option>
-                                                    <option>2 Kilo</option>
-                                                    <option>3 Kilo</option>
-                                                    <option>4 Kilo</option>
-                                                    <option>5 Kilo</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label class="checkbox-inline"><input value="" type="checkbox"> <span>Ready in stock</span></label> </div>
-                                    </div>
-                                    <ul class="meta">
-                                        <li> <strong> SKU </strong> <span>:  AB2922-B</span> </li>
-                                        <li> <strong> CATEGORY </strong> <span>:  Fruits</span> </li>
-                                        <li class="tags-widget"> <strong> TAGS </strong> <span>:  <a href="#">fruits</a> <a href="#">vegetables</a> <a href="#">juices</a></span> </li>
-                                    </ul>
-                                    <div class="divider-full-1"></div>
-                                    <div class="add-cart pt-15">
-                                        <a href="#" class="theme-btn btn"> <strong> ADD TO CART </strong> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>  
-
-                </div>
-            </div>
-        </section>
-        <!-- / Product Preview Popup -->
-
-        <!-- JS Global -->
-        <script src="assets/js/plugin/jquery-2.2.4.min.js"></script>   
-        <script src="assets/js/plugin/bootstrap.min.js"></script>
-        <script src="assets/js/plugin/bootstrap-select.min.js"></script>       
-        <script src="assets/js/plugin/owl.carousel.min.js"></script>
-        <script src="assets/js/plugin/jquery-ui.min.js"></script>
 
         <!-- Custom JS -->   
         <script src="assets/js/theme.js"></script>
+        <script src="assets/js/shop.js"></script>
 
+        <script type="text/x-jsrender" id="get-items-template">
+            {{for data}}
+            <div class="col-md-6 col-sm-12" id="{{:id}}"> 
+                <div class="deal-item list-view">
+                    <div class="deal-icons">                            
+                        <a href="javascript:void(0)" onclick="addIntoCart(this)" item_id="{{:id}}" class="fa fa-shopping-basket"></a>
+                    </div>
+                    <div class="deal-content">
+                        <div class="deal-text">
+                            <h4 class="sub-title"> {{:business_name}} </h4>
+                            <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font"> {{:name}} </span> </a> </h2>
+                            <div class="price pt-15"> 
+                                <strong class="clr-txt"> {{:price}} </strong>元
+                            </div>
+                        </div>
+                        <div class="img"> <img alt="" src="{{:img}}"> </div>
+                    </div>
+                </div>
+            </div>
+            {{/for}}
+        </script>
 
+        <script type="text/x-jsrender" id="cart-item">
+            {{for items}}
+            <div class="col-md-6 col-sm-12" id="cart-{{:id}}"> 
+                <div class="deal-item list-view">
+                    <div class="deal-icons">                            
+                        <a href="javascript:void(0)" onclick="removeFromCart(this)" item_id="{{:id}}" class="fa fa-minus-circle" aria-hidden="true"></a>
+                    </div>
+                    <div class="deal-content">
+                        <div class="deal-text">
+                            <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font"> {{:name}} </span> </a> </h2>
+                            <div class="price pt-15"> 
+                                <strong class="clr-txt"> {{:price}} </strong>元
+                            </div>
+                        </div>
+                        <div class="img"> <img alt="" src="{{:img}}"> </div>
+                    </div>
+                </div>
+            </div>
+            {{/for}}
+        </script>
+
+        <script type="text/x-jsrender" id="cart-item-for-add">
+            <div class="col-md-6 col-sm-12" id="cart-{{:id}}"> 
+                <div class="deal-item list-view">
+                    <div class="deal-icons">                            
+                        <a href="javascript:void(0)" onclick="removeFromCart(this)" item_id="{{:id}}" class="fa fa-minus-circle" aria-hidden="true"></a>
+                    </div>
+                    <div class="deal-content">
+                        <div class="deal-text">
+                            <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font"> {{:name}} </span> </a> </h2>
+                            <div class="price pt-15"> 
+                                <strong class="clr-txt"> {{:price}} </strong>元
+                            </div>
+                        </div>
+                        <div class="img"> <img alt="" src="{{:img}}"> </div>
+                    </div>
+                </div>
+            </div>
+        </script>
     </body>
 </html>
 

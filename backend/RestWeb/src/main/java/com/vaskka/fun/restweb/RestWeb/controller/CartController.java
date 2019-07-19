@@ -48,6 +48,19 @@ public class CartController {
 
     }
 
+
+    @ApiOperation(value = "删除购物车某件商品")
+    @ResponseBody
+    @RequestMapping(value = "/cart/remove/item/{cart_id}/{item_id}", method = RequestMethod.GET)
+    public Map<String, Object> removeItemFromCart(@PathVariable(value = "cart_id") String cartId,
+                                           @PathVariable(value = "item_id") String itemId) {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("code", 0);
+        cartService.removeItem(itemId, cartId);
+        return map;
+    }
+
     @ApiOperation(value = "结算购物车全部商品")
     @ResponseBody
     @RequestMapping(value = "/post/order", method = RequestMethod.POST)
@@ -61,6 +74,5 @@ public class CartController {
         map.put("data", cartService.postOrder(cartId));
 
         return map;
-
     }
 }

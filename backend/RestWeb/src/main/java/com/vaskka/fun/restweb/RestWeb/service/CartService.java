@@ -6,6 +6,7 @@ import com.vaskka.fun.restweb.RestWeb.exception.RestWebRuntimeException;
 import com.vaskka.fun.restweb.RestWeb.service.inner.PostInnerItem;
 import com.vaskka.fun.restweb.RestWeb.util.CommonUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -81,8 +82,16 @@ public class CartService {
         return new PostInnerItem(res, calPrice(res), orderId);
     }
 
+    @Transactional
     public void cleanCart(String cartId) {
         cartItemDao.deleteByCartid(cartId);
+    }
+
+    @Transactional
+    public void removeItem(String itemId, String cartId) {
+        CartItemEntity entity = cartItemDao.findFirstByCartidAndItemid(cartId, itemId);
+
+        cartItemDao.deleteById(entity.getId());
     }
 
 
