@@ -1,6 +1,6 @@
 package com.vaskka.fun.restweb.RestWeb.service;
 
-import com.sun.tools.javac.util.List;
+import java.util.List;
 import com.vaskka.fun.restweb.RestWeb.dao.UserDao;
 import com.vaskka.fun.restweb.RestWeb.entity.UserEntity;
 import com.vaskka.fun.restweb.RestWeb.util.CommonUtil;
