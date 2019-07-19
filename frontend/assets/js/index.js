@@ -10,11 +10,8 @@ else {
     window.location.href = "login.html";
 }
 
-// if (user_id == undefined) {
-//     user_id = null;
-// }
 
-get("/main/get/main/business", [], function(_data) {
+get("/get/main/business", [], function(_data) {
 
     for (item of _data.data) {
         item.user_id = user_id;
