@@ -27,13 +27,11 @@ public class CommentController {
 
     @ApiOperation(value = "创建评论")
     @ResponseBody
-    @RequestMapping(value = "/order/comment/create/{orderId}/{userId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/order/comment/create/{orderId}/{userId}/{content}", method = RequestMethod.GET)
     public Map<String, Object> createComment(@PathVariable(value = "userId") String userId,
                                              @PathVariable(value = "orderId") String orderId,
-                                             @RequestBody JSONObject body) {
+                                             @PathVariable(value = "content") String content) {
         Map<String, Object> map = new HashMap<>();
-
-        String content = body.getAsString("price");
 
         commentService.createComment(userId, orderId, content);
 

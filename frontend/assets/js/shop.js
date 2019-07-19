@@ -40,9 +40,9 @@ get("/item/all", [business_id], function(_data) {
             $('#cart-item').render(data.cart)   
         );
 
-    }, function() {})
+    }, function(data) {})
 
-}, function() {})
+}, function(data) {})
 
 
 function addIntoCart(_obj) {
@@ -62,9 +62,9 @@ function addIntoCart(_obj) {
 
     $('#cart-items').html(final);
 
-    get("/add/item", [item_id, data.cart.cart_id], function() {
+    get("/add/item", [item_id, data.cart.cart_id], function(data) {
         console.log("添加购物车成功" + item_id);
-    }, function() {
+    }, function(data) {
         console.log("添加购物车失败" + item_id);
     });
 }
@@ -76,9 +76,9 @@ function removeFromCart(_obj) {
     console.log(item_id);
     $("#" + "cart-" + item_id).remove();
 
-    get("/cart/remove/item", [data.cart.cart_id, item_id], function() {
+    get("/cart/remove/item", [data.cart.cart_id, item_id], function(data) {
         console.log("删除物品成功" + item_id);
-    }, function() {
+    }, function(data) {
         console.log("删除物品失败" + item_id);
     });
 }
@@ -91,4 +91,8 @@ function search(item_id) {
     }
 
     return null;
+}
+
+function submit() {
+    window.location.href = "confirm.html#" + user_id + "#" + business_id + "#" + data.cart.cart_id + "#" + data.business.name;
 }

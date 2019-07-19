@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>饱了么</title>
+
+        <!-- Font Icon -->
+        <link href="assets/css/plugin/font-awesome.min.css" rel="stylesheet" type="text/css">  
+
+        <!-- CSS Global -->
+        <link href="assets/css/plugin/bootstrap.min.css" rel="stylesheet" type="text/css">  
+        <link href="assets/css/plugin/bootstrap-select.min.css" rel="stylesheet" type="text/css"> 
+        <link href="assets/css/plugin/owl.carousel.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/plugin/animate.css" rel="stylesheet" type="text/css"> 
+        <link href="assets/css/plugin/jquery-ui.min.css" rel="stylesheet" type="text/css"> 
+
+        <!-- Custom CSS -->
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+
+        <script src="assets/js/plugin/jquery-2.2.4.min.js"></script>   
+        <script src="assets/js/plugin/bootstrap.min.js"></script>
+        <script src="assets/js/plugin/bootstrap-select.min.js"></script>       
+        <script src="assets/js/plugin/owl.carousel.min.js"></script>
+        <script src="assets/js/plugin/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.3/jsrender.min.js"></script>
+        <script src="assets/js/tool.js"></script>
+
+        <!-- Color CSS --> 
+
+        <!--[if lt IE 9]>
+        <script src="assets/js/plugin/html5shiv.js"></script>
+        <script src="assets/js/plugin/respond.js"></script>
+        <![endif]-->        
+    </head>
+
+    <body id="home" class="wide">
+
+         
+        <!-- WRAPPER -->
+        <main class="wrapper"> 
+            <!-- CONTENT AREA -->
+
+            <!-- Main Header Start -->
+            <header class="main-header">                  
+                    <div class="container-fluid rel-div">
+                        <div class="col-lg-4 col-sm-8">
+                            <div class="main-logo">
+                                <a href="index.html"> <strong>Are U Ok <img src="assets/img/icons/logo-icon.png" alt="" /> </strong> <span class="light-font">饱了么</span>  </a>
+                                <span>餐饮外卖配送平台</span>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 responsive-menu">  
+                            <nav class="fix-navbar" id="primary-navigation">            
+                                <ul class="primary-navbar">                                                
+                                    <li><a href="index.html"> Home</a></li>    
+                                    <li><a href="my-account.html"> my account </a></li>
+                                </ul>                           
+                            </nav>
+                        </div>
+    
+                        <div class="col-lg-2 col-sm-4 cart-megamenu">
+                            <div class="responsive-toggle fa fa-bars"> </div>
+                        </div>
+    
+                    </div>  
+            </header>
+            <!-- / Main Header Ends -->   
+
+            <!--Breadcrumb Section Start-->
+            <section class="breadcrumb-bg">                
+                <div class="theme-container container ">                       
+                    <div class="site-breadcumb white-clr" id="business_head"> 
+
+                    </div>  
+                </div>
+            </section>
+            <!--Breadcrumb Section End-->
+
+
+            <!-- Shop Starts-->
+            <section class="contact-wrap sec-space-bottom">
+                <div class="container rel-div pt-50">
+
+                    <div class="row">
+                        <div class="col-md-8" id="items">
+                            <!-- 商品list -->
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <!-- 信息 -->
+                            
+                            <div class="contact-details">
+                                <script type="text/x-jsrender" id="info-title">
+                                <h3 class="fsz-25"><span class="light-font">商家名：  </span> <strong> {{:business_name}} </strong>  </h3> 
+
+                                <p>总价：{{:price}}元</p>
+                                </script>
+                                
+                                <h3>代金券：</h3>
+                                <select class="selectpicker" id="coupons" title="请选择使用的代金券">
+
+                                </select>
+
+                                <h3>配送地址：</h3>
+                                <select class="selectpicker" id="addresses" title="请选择配送地址">
+
+                                </select>
+
+                                <h3>总价：</h3>
+                                <p id="sum_price"> </p>
+                                
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>                
+            </section>
+            <!-- / Shop Ends -->      
+
+            <!-- / CONTENT AREA -->
+
+            <!-- FOOTER -->
+            <footer class="page-footer"> 
+                    <section class="footer-bottom">
+                        <div class="pattern"> 
+                            <img alt="" src="assets/img/icons/white-pattern.png">
+                        </div>
+                        <div class="slide" style="text-align: center;">
+                                <a href="javascript:void(0)" onclick="submit()" class="slide-btn"> 确认支付 </a>  
+                            </div>
+                        <div id="to-top" class="to-top"> <i class="fa fa-arrow-circle-o-up"></i> </div>
+                        <div class="container ptb-50">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-5">
+                                    <p>Copyright &copy; 2017. Vaskka.inc All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            </footer>
+            <!-- /FOOTER -->
+
+        </main>
+        <!-- /WRAPPER -->
+
+        <!-- Custom JS -->   
+        <script src="assets/js/theme.js"></script>
+        <script src="assets/js/confirm.js"></script>
+
+
+        <script type="text/x-jsrender" id="item-template">
+            {{for items}}
+            <div class="col-md-6 col-sm-12" id="{{:id}}"> 
+                <div class="deal-item list-view">
+                    <div class="deal-content">
+                        <div class="deal-text">
+                            <h2 class="fsz-30 pb-15"> <a href="#"> <span class="light-font"> {{:name}} </span> </a> </h2>
+                            <div class="price pt-15"> 
+                                <strong class="clr-txt"> {{:price}} </strong>元
+                            </div>
+                        </div>
+                        <div class="img"> <img alt="" src="{{:img}}"> </div>
+                    </div>
+                </div>
+            </div>
+            {{/for}}
+        </script>
+
+        <script type="text/x-jsrender" id="business_content">                       
+            <h2 class="section-title"> <strong class="clr-txt"> 收银台 </strong> 
+                
+                <span class="light-font"> {{:bn}} </span>
+
+            </h2>
+        </script>
+
+        <script type="text/x-jsrender" id="coupon-template">
+            {{for data}}
+            <option id="{{:id}}" onclick="clickCoupon(this)">使用{{:price}}元代金券</option>
+            {{/for}}
+        </script>
+
+        <script type="text/x-jsrender" id="address-template">
+            {{for data}}
+            <option id="{{: #data}}">{{: #data}}</option>
+            {{/for}}
+        </script>
+
+        <script type="text/x-jsrender" id="price">
+            <span id="inner-sum-price">{{:price}}</span>元
+        </script>
+
+    </body>
+</html>
+

@@ -52,11 +52,10 @@ public class OrderController {
 
     @ApiOperation(value = "进行交易")
     @ResponseBody
-    @RequestMapping(value = "/trans", method = RequestMethod.POST)
-    public Map<String, Object> trans(@RequestBody JSONObject body) {
+    @RequestMapping(value = "/trans/{orderId}", method = RequestMethod.GET)
+    public Map<String, Object> trans(@PathVariable(value = "orderId") String orderId) {
         Map<String, Object> map = new HashMap<>();
 
-        String orderId = body.getAsString("orderId");
         try {
             orderService.trans(orderId);
         }

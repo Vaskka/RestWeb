@@ -63,11 +63,9 @@ public class CartController {
 
     @ApiOperation(value = "结算购物车全部商品")
     @ResponseBody
-    @RequestMapping(value = "/post/order", method = RequestMethod.POST)
-    public Map<String, Object> post(@RequestBody  JSONObject body) {
+    @RequestMapping(value = "/post/order/{cardId}", method = RequestMethod.GET)
+    public Map<String, Object> post(@PathVariable(value = "cardId") String cartId) {
         Map<String, Object> map = new HashMap<>();
-
-        String cartId = body.getAsString("cartId");
 
         map.put("code", 0);
 
