@@ -47,5 +47,8 @@ public class UserService {
         return check.get(0).getId();
     }
 
+    public UserEntity getUserInfo(String uid) {
+        return userDao.findById(uid).get();
+    }
 
 }

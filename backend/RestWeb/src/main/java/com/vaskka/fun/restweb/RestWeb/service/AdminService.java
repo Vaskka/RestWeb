@@ -3,10 +3,12 @@ package com.vaskka.fun.restweb.RestWeb.service;
 import com.vaskka.fun.restweb.RestWeb.dao.OrderDao;
 import com.vaskka.fun.restweb.RestWeb.dao.TransitionDao;
 import com.vaskka.fun.restweb.RestWeb.dao.UserDao;
+import com.vaskka.fun.restweb.RestWeb.entity.CommentEntity;
 import com.vaskka.fun.restweb.RestWeb.entity.OrderEntity;
 import com.vaskka.fun.restweb.RestWeb.entity.TransitionEntity;
 import com.vaskka.fun.restweb.RestWeb.entity.UserEntity;
 import com.vaskka.fun.restweb.RestWeb.service.inner.AdminInnerOrder;
+import com.vaskka.fun.restweb.RestWeb.service.inner.InnerComment;
 import com.vaskka.fun.restweb.RestWeb.service.inner.InnerOrder;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -42,7 +44,7 @@ public class AdminService {
             String orderId = entity.getId();
 
             InnerOrder innerOrder = orderService.getUserOrderDetail(orderId);
-            res.add(AdminInnerOrder.fromInnerOrderGetThis(innerOrder, commentService.getList(orderId, entity.getCreatorid())));
+            res.add(AdminInnerOrder.fromInnerOrderGetThis(innerOrder, fromEntityGetList(commentService.getList(orderId))));
         }
 
         return res;
@@ -57,4 +59,15 @@ public class AdminService {
     public List<UserEntity> getUser(Integer size, Integer page) {
         return userDao.findAll(PageRequest.of(page, size)).getContent();
     }
+
+    private List<CommentEntity> fromEntityGetList(List<InnerComment> entityList) {
+        List<CommentEntity> res = new ArrayList<>();
+
+        for (InnerComment comment : entityList) {
+            res.add(comment.getCommentEntity());
+        }
+
+        return res;
+    }
+
 }

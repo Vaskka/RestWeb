@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>饱了么</title>
+        <title>naturix</title>
 
         <!-- Font Icon -->
         <link href="assets/css/plugin/font-awesome.min.css" rel="stylesheet" type="text/css">  
@@ -33,6 +33,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.3/jsrender.min.js"></script>
         <script src="assets/js/tool.js"></script>
 
+
         <!-- Color CSS --> 
 
         <!--[if lt IE 9]>
@@ -42,13 +43,14 @@
     </head>
 
     <body id="home" class="wide">
-
          
+
+
+
         <!-- WRAPPER -->
         <main class="wrapper"> 
             <!-- CONTENT AREA -->
 
-            <!-- Main Header Start -->
             <header class="main-header">                  
                     <div class="container-fluid rel-div">
                         <div class="col-lg-4 col-sm-8">
@@ -72,59 +74,58 @@
     
                     </div>  
             </header>
-            <!-- / Main Header Ends -->   
 
             <!--Breadcrumb Section Start-->
             <section class="breadcrumb-bg">                
-                <div class="theme-container container ">                       
-                    <div class="site-breadcumb white-clr" id="business_head"> 
-
-                    </div>  
-                </div>
+                    <div class="theme-container container ">                       
+                        <div class="site-breadcumb white-clr" id="business_head"> 
+    
+                        </div>  
+                    </div>
             </section>
             <!--Breadcrumb Section End-->
 
 
             <!-- Shop Starts-->
-            <section class="contact-wrap sec-space-bottom">
+            <section class="shop-wrap sec-space-bottom">
                 <div class="container rel-div pt-50">
-
                     <div class="row">
-                        <div class="col-md-8" id="items">
-                            <!-- 商品list -->
-
-
+                        <div class="col-md-3 pt-15">
+                            <div class="widget-wrap" id="info">
+                                <!--info-->
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <!-- 信息 -->
-                            
-                            <div class="contact-details">
-                                <script type="text/x-jsrender" id="info-title">
-                                <h3 class="fsz-25"><span class="light-font">商家名：  </span> <strong> {{:business_name}} </strong>  </h3> 
 
-                                <p>总价：{{:price}}元</p>
-                                </script>
-                                
-                                <h3>代金券：</h3>
-                                <select class="selectpicker" id="coupons" title="请选择使用的代金券">
+                        <div class="col-md-9 pt-15">
+                            <div class="product-single sec-space-bottom  clearfix" id="items">
+                                <!-- 商品 -->
+                            </div>  
 
-                                </select>
+                            <div class="prod-tabs pb-50">
+                                <div class="tab-content prod-tab-content" id="reviews">
+                                    <!-- 评论 -->
 
-                                <h3>配送地址：</h3>
-                                <select class="selectpicker" id="addresses" title="请选择配送地址">
-
-                                </select>
-
-                                <h3>总价：</h3>
-                                <p id="sum_price"> </p>
-                                
+                                </div>
                             </div>
 
-
+                            <!-- 写评论 -->
+                            <div class="your-review">
+                                <h3 class="fsz-20 pb-15 text-center"><span class="light-font"> 创建 </span> <strong> 评论 </strong>  </h3>
+                                <div class="divider-full-1"></div>
+                                <div class="your-review">
+                                    <div class="review-form row">
+                                        <div class="form-group col-sm-12">
+                                            <textarea class="form-control" id="review_content"  placeholder="Message" cols="12" rows="4"></textarea>                                                                                     
+                                        </div>
+                                        <div class="form-group col-sm-12 text-center ptb-15">                                               
+                                            <button class="theme-btn" href="javascript:void(0)" onclick="submit()"> <strong> 发表 </strong> </button>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                </div>                
+                </div>
             </section>
             <!-- / Shop Ends -->      
 
@@ -137,7 +138,7 @@
                             <img alt="" src="assets/img/icons/white-pattern.png">
                         </div>
                         <div class="slide" style="text-align: center;">
-                                <a href="javascript:void(0)" onclick="submit()" class="slide-btn"> 确认支付 </a>  
+                                <a href="javascript:void(0)" onclick="goback()" class="slide-btn"> 回到首页 </a>  
                             </div>
                         <div id="to-top" class="to-top"> <i class="fa fa-arrow-circle-o-up"></i> </div>
                         <div class="container ptb-50">
@@ -151,16 +152,58 @@
             </footer>
             <!-- /FOOTER -->
 
+<div id="to-top-mb" class="to-top mb"> <i class="fa fa-arrow-circle-o-up"></i> </div>
+
         </main>
         <!-- /WRAPPER -->
 
+        <!-- JS Global -->
+
+
         <!-- Custom JS -->   
         <script src="assets/js/theme.js"></script>
-        <script src="assets/js/confirm.js"></script>
+        <script src="assets/js/detail.js"></script>
 
+        <script type="text/x-jsrender" id="business_content">                       
+            <h2 class="section-title"> <strong class="clr-txt"> 订单详情： </strong> 
+                
+                <span class="light-font"> {{:bn}} </span>
+
+            </h2>
+        </script>
+
+        <script type="text/x-jsrender" id="info_template">                       
+            <div class="panel panel-info">
+                <div class="panel-heading"> <div class="panel-title">消费者: </div> </div>
+                <div class="panel-body">
+                        {{:creator.name}}
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading"> <div class="panel-title">联系电话:</div> </div>
+                <div class="panel-body">
+                        {{:creator.phone}}
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading"> <div class="panel-title">消费时间:</div> </div>
+                <div class="panel-body">
+                        {{:createTime}}
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading"> <div class="panel-title">消费总金额:</div> </div>
+                <div class="panel-body">
+                        {{:sumPrice}} 元
+                </div>
+            </div>
+        </script>
 
         <script type="text/x-jsrender" id="item-template">
-            {{for items}}
+            {{for item}}
             <div class="col-md-6 col-sm-12" id="{{:id}}"> 
                 <div class="deal-item list-view">
                     <div class="deal-content">
@@ -177,30 +220,19 @@
             {{/for}}
         </script>
 
-        <script type="text/x-jsrender" id="business_content">                       
-            <h2 class="section-title"> <strong class="clr-txt"> 收银台 </strong> 
-                
-                <span class="light-font"> {{:bn}} </span>
-
-            </h2>
-        </script>
-
-        <script type="text/x-jsrender" id="coupon-template">
+        <script type="text/x-jsrender" id="review-template">
             {{for data}}
-            <option id="{{:id}}" onclick="clickCoupon(this)">使用{{:price}}元代金券</option>
+            <div class="pannel">
+                <h3 class="fsz-16"><span class="light-font"> 创建者： </span> <strong>{{:creatorName}} </strong>  </h3>
+                <span class="divider-2 crl-bg"></span>
+
+                <div class="block-inline pera">
+                    <p>{{:commentEntity.content}}</p>
+                </div>
+                <p > {{:commentEntity.createtime}} </p>
+            </div>
             {{/for}}
         </script>
-
-        <script type="text/x-jsrender" id="address-template">
-            {{for data}}
-            <option id="{{: #data}}">{{: #data}}</option>
-            {{/for}}
-        </script>
-
-        <script type="text/x-jsrender" id="price">
-            <span id="inner-sum-price">{{:price}}</span>元
-        </script>
-
     </body>
 </html>
 

@@ -42,14 +42,13 @@ public class CommentController {
 
     @ApiOperation(value = "查找评论")
     @ResponseBody
-    @RequestMapping(value = "/order/comment/get/{orderId}/{userId}", method = RequestMethod.GET)
-    public Map<String, Object> getComment(@PathVariable(value = "orderId") String orderId,
-                                          @PathVariable(value = "userId") String userId) {
+    @RequestMapping(value = "/order/comment/get/{orderId}", method = RequestMethod.GET)
+    public Map<String, Object> getComment(@PathVariable(value = "orderId") String orderId) {
         Map<String, Object> map = new HashMap<>();
 
 
         map.put("code", 0);
-        map.put("data", commentService.getList(orderId, userId));
+        map.put("data", commentService.getList(orderId));
 
         return map;
     }

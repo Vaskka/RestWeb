@@ -99,6 +99,6 @@ function submit() {
     }
 
     get("/trans", [data.data.orderId], function() {
-        
+        window.location.href = "detail.html" + "#" + user_id + "#" + business_name + "#" + data.data.orderId;
     }, function() {});
 }

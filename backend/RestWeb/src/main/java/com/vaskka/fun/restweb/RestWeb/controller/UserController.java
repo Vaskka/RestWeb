@@ -1,5 +1,6 @@
 package com.vaskka.fun.restweb.RestWeb.controller;
 
+import com.vaskka.fun.restweb.RestWeb.entity.UserEntity;
 import com.vaskka.fun.restweb.RestWeb.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -60,6 +61,21 @@ public class UserController {
         setMapFromUserId(map, userId);
         return map;
     }
+
+    @ApiOperation(value = "得到用户信息")
+    @ResponseBody
+    @RequestMapping(value = "/user/info/{userId}", method = RequestMethod.GET)
+    public Map<String, Object> login(@PathVariable(value = "userId") String userId) {
+        Map<String, Object> map = new HashMap<>();
+
+        UserEntity entity = userService.getUserInfo(userId);
+        entity.setPassword(null);
+
+        map.put("code", 0);
+        map.put("data", entity);
+        return map;
+    }
+
 
     private void setMapFromUserId(Map<String, Object> map, String userId) {
         if (userId == null) {

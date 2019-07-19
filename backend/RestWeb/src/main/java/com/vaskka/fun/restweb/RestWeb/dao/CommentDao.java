@@ -8,4 +8,6 @@ import java.util.List;
 public interface CommentDao extends JpaRepository<CommentEntity, String> {
 
     List<CommentEntity> findByUseridAndOrderid(String userId, String orderId);
+
+    List<CommentEntity> findByOrderid(String orderId);
 }
