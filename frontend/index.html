@@ -119,32 +119,6 @@
                             <div id="product-tab-1" class="tab-pane fade active in"> 
                                 <div class="product-slider-1 dots-1" id="hot-items"> 
 
-                                    <script type="text/x-jsrender" id="get-items-template">
-                                        <div class="item"> 
-                                            <div class="product-box"> 
-                                                <div class="product-media"> 
-                                                    <img class="prod-img" alt="" src="{{:img_url}}" />     
-                                                    <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                                    <div class="prod-icons"> 
-                                                        <a href="#" class="fa fa-heart"></a>
-                                                        <a href="#" class="fa fa-shopping-basket"></a>
-                                                        <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                                    </div>
-                                                </div>                                           
-                                                <div class="product-caption"> 
-                                                    <h3 class="product-title">
-                                                        <a href="#"> {{:name}} </a>
-                                                    </h3>
-                                                    <div class="price"> 
-                                                        <strong class="clr-txt">$50.00 </strong>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </script>
-
-
-
 
                                 </div>
                             </div>
@@ -338,6 +312,22 @@
         <script src="assets/js/theme.js"></script>
         <script src="assets/js/index.js"></script>
 
+        <script type="text/x-jsrender" id="get-items-template">
+            {{for data}}
+            <div class="item"> 
+                <div class="product-box"> 
+                    <div class="product-media"> 
+                        <img class="prod-img" alt="" src="{{:headimg}}" />     
+                        <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
+                    </div>                                           
+                    <div class="product-caption"> 
+                        <h3 class="product-title">
+                            <a href="shop#{{:id}}#{{:user_id}}"> {{:name}} </a>
+                    </div>
+                </div>
+            </div>
+            {{/for}}
+        </script>
     </body>
 </html>
 

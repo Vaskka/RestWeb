@@ -5,8 +5,8 @@ if (params.length < 3) {
     window.location.href='login.html';
 }
 
-var business_id = params[params.length - 1].replace("business_id=", "")
-var user_id = params[params.length - 2].replace("business_id=", "")
+var business_id = params[params.length - 2]
+var user_id = params[params.length - 1]
 
 var data = null;
 
