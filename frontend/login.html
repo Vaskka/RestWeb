@@ -7,34 +7,20 @@
 <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/login.css">
 
-<style>
-	
-	.box, .overbox {
-		display: block;
-		transition: all 0.5s ease-out;
-	}
-
-	.overbox {
-		opacity: 0;
-	}
-
-	.box {
-		opacity: 1;
-	}
-</style>
-
 <script src="assets/js/tool.js"></script>
 
+<style>
+label {
+	font-size: 10px;
+}
+
+</style>
 </head>
 <body>
 
 <div class="materialContainer">
 
-		<div class="material-button alt-2">
-			<span class="shape"></span>
-		</div>
 	<div class="box">
-
 		<div class="title">登录</div>
 		<div class="input">
 			<label for="phone">手机号码</label>
@@ -42,8 +28,8 @@
 			<span class="spin"></span>
 		</div>
 		<div class="input">
-			<label for="password">密码</label>
-			<input type="password" name="password" id="password">
+			<label for="pass">密码</label>
+			<input type="password" name="pass" id="pass">
 			<span class="spin"></span>
 		</div>
 		<div class="button login">
@@ -54,13 +40,16 @@
 		</div>
 	</div>
 
-	<div class="overbox" style="display: block;">
-
+	<div class="overbox"> 
+		<div class="material-button alt-2">
+			<span class="shape"></span>
+		</div>
 		<div class="title">注册</div>
+
 		<div class="input">
-				<label for="regphone">手机号码</label>
-				<input type="text" name="regphone" id="regphone">
-				<span class="spin"></span>
+			<label for="regphone">手机号码</label>
+			<input type="text" name="regphone" id="regphone">
+			<span class="spin"></span>
 		</div>
 
 		<div class="input">
@@ -69,13 +58,8 @@
 			<span class="spin"></span>
 		</div>
 		<div class="input">
-			<label for="regpasswordpass">密码</label>
-			<input type="password" name="regpassword" id="regpasswordpass">
-			<span class="spin"></span>
-		</div>
-		<div class="input">
-			<label for="reregpassword">确认密码</label>
-			<input type="password" name="reregpassword" id="reregpassword">
+			<label for="regpass">密码</label>
+			<input type="password" name="regpass" id="regpass">
 			<span class="spin"></span>
 		</div>
 		<div class="button">

@@ -279,6 +279,7 @@
    z-index: 111;
    position: relative;
    color: #fff !important;
+   display: none;
 }
 
 .overbox .title {
