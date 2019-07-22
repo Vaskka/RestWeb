@@ -1,5 +1,7 @@
 package com.vaskka.fun.restweb.RestWeb.controller;
 
+import com.vaskka.fun.restweb.RestWeb.entity.ItemEntity;
+import com.vaskka.fun.restweb.RestWeb.service.BusinessService;
 import com.vaskka.fun.restweb.RestWeb.service.CartService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,6 +19,9 @@ public class CartController {
 
     @Resource
     private CartService cartService;
+
+    @Resource
+    private BusinessService businessService;
 
     @ApiOperation(value = "添加商品到购物车")
     @ResponseBody
@@ -73,4 +78,22 @@ public class CartController {
 
         return map;
     }
+
+
+    @ApiOperation(value = "获取商品详情")
+    @ResponseBody
+    @RequestMapping(value = "/get/item/detail/{itemId}", method = RequestMethod.GET)
+    public Map<String, Object> getItemDetail(@PathVariable(value = "itemId") String itemId) {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("code", 0);
+
+        ItemEntity entity = cartService.getDetail(itemId);
+
+        map.put("data", entity);
+
+        map.put("business", businessService.getBusinessName(entity.getBusinessid()));
+        return map;
+    }
+
 }

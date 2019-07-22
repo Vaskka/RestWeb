@@ -95,4 +95,12 @@ public class CartService {
     }
 
 
+
+    public ItemEntity getDetail(String itemId) {
+
+        return itemDao.findById(itemId).get();
+
+    }
+
+
 }

@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>商品详情</title>
+    <link rel="shortcut icon" href="assets/images/叶片.png" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="assets/css/icons.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/red-color.css">
+    <link rel="stylesheet" href="assets/css/yellow-color.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- axios and react -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <!-- jsrender -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://shaack.com/projekte/bootstrap-input-spinner/src/bootstrap-input-spinner.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.3/jsrender.min.js"></script>
+
+    <style>
+        .num-input {
+            width: 120px;
+        }
+    </style>
+
+</head>
+
+<body itemscope>
+    <main>
+        <div class="preloader">
+            <div id="cooking">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div id="area">
+                    <div id="sides">
+                        <div id="pan"></div>
+                        <div id="handle"></div>
+                    </div>
+                    <div id="pancake">
+                        <div id="pastry"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--顶端索引-->
+        <header class="stick">
+                <div class="topbar">
+                    <div class="container">
+                        <div class="social1">
+                            <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                            <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>                
+                </div><!-- Topbar -->
+                <div class="logo-menu-sec">
+                    <div class="container">
+                        <div class="logo"><h1 itemprop="headline"><a href="主页.html" title="主页" itemprop="url"><img src="assets/images/logo1.png" alt="logo.png" itemprop="image"></a></h1></div>
+                        <nav>
+                            <div class="menu-sec">
+                                <ul>
+                                    <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">Are You Ok</span><a href="index.html">主页</a></li>
+                                    <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">Are You Ok</span><a href="shop_list.html">商家列表</a></li>
+                                </ul>
+                            </div>
+                        </nav><!-- Navigation -->
+                    </div>
+                </div><!-- Logo Menu Section -->
+        </header><!-- Header -->
+    
+
+
+        <section>
+            <div class="block blackish low-opacity">
+                <div class="fixed-bg" style="background-image: url(assets/images/parallax1.jpg);"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="title1-wrapper text-center">
+                                <div class="title1-inner">
+                                    <p>
+                                        <h2 class="text-white" itemprop="headline" id="business_name">店名</h2>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bread-crumbs-wrapper">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" title="主页" itemprop="url">主页</a></li>
+                    <li class="breadcrumb-item"><a href="shop_list.html" title="商家详情" itemprop="url">商家详情</a></li>
+                    <li class="breadcrumb-item active">商品详情</li>
+                </ol>
+            </div>
+        </div>
+
+        <section>
+            <div class="block gray-bg bottom-padd210 top-padd30">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="sec-box">
+                                <div class="sec-wrapper">
+                                    <div class="col-md-8 col-sm-12 col-lg-8">
+                                        <div class="restaurant-detail-wrapper">
+                                            <div class="restaurant-detail-info" id="item">
+                                                <!-- 商品详情 -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 col-sm-12 col-lg-4">
+                                        <div class="order-wrapper">
+                                            <div class="order-inner gradient-brd">
+                                                <h4 itemprop="headline"> <img src="assets/images/shopping_icon.png">购物车
+                                                </h4>
+                                                <div class="order-list-wrapper">
+                                                    <ul class="order-list-inner" id="cart">
+                                                        <!-- 购物车 -->
+                                                    </ul>
+                                                    <ul class="order-total">
+                                                        <li><span>小计</span> <i>¥<span id="sub_check"></span></i></li>
+                                                        <li><span>已优惠</span> <i>¥0</i></li>
+                                                    </ul>
+                                                    <ul class="order-method brd-rd2 red-bg">
+                                                        <li><span>共计</span> <span class="price">¥<span id="main_check"></span></span></li>
+                                                        <li><a class="card-popup-btn" href="javascript: void(0)" onclick="submit()" title=""
+                                                                itemprop="url">支付</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Section Box -->
+            </div>
+        </section>
+
+        <footer>
+            <div class="block top-padd80 bottom-padd80 dark-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="footer-data">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
+                                            <div class="logo">
+                                                <h1 itemprop="headline"><a href="主页.html" title="主页" itemprop="url"><img
+                                                            src="assets/images/logo.png" alt="logo.png"
+                                                            itemprop="image"></a></h1>
+                                            </div>
+                                            <p itemprop="description">便捷的外卖订餐平台，您的最佳选择。</p>
+                                            <div class="social2">
+                                                <a class="brd-rd50" href="#" title="Facebook" itemprop="url"
+                                                    target="_blank"><i class="fa fa-facebook"></i></a>
+                                                <a class="brd-rd50" href="#" title="Google Plus" itemprop="url"
+                                                    target="_blank"><i class="fa fa-google-plus"></i></a>
+                                                <a class="brd-rd50" href="#" title="Twitter" itemprop="url"
+                                                    target="_blank"><i class="fa fa-twitter"></i></a>
+                                                <a class="brd-rd50" href="#" title="Pinterest" itemprop="url"
+                                                    target="_blank"><i class="fa fa-pinterest"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                            <h4 class="widget-title" itemprop="headline">联系我们</h4>
+                                            <ul>
+                                                <li><i class="fa fa-map-marker"></i> 四川省, 成都市, 双流区, 四川大学.</li>
+                                                <li><i class="fa fa-phone"></i> (0000) 0000 0000 000</li>
+                                                <li><i class="fa fa-envelope"></i> <a href="#" title=""
+                                                        itemprop="url">0000@xxx.com</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Footer Data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- footer -->
+    </main><!-- Main Wrapper -->
+
+
+
+    <script type="text/babel">
+        const MAIN = "https://vaskka.com/backend";
+
+        const TEST = "http://localhost:8000";
+
+        function getShopId() {
+            let base = window.location.href;
+
+            let param = base.split("#");
+
+            return param[param.length - 2];
+        }
+
+        function getUserId() {
+            let base = window.location.href;
+
+            let param = base.split("#");
+            return param[param.length - 3];
+        }
+
+        function getItemId() {
+
+            let base = window.location.href;
+
+            let param = base.split("#");
+            return param[param.length - 1];
+        }
+
+        // 商品详情
+        class ItemDetail extends React.Component {
+
+            constructor(props) {
+                super(props);
+
+                this.data = {
+                    user_id: null,
+                    shop_id: null,
+                    item_id: null
+                }
+
+                this.state = {
+                    ready: false,
+                    cartReady: false,
+                    inputValue: 1
+                }
+
+            }
+
+            // request data
+            componentDidMount = () => {
+
+                // get shop_id and user_id and access
+                let base = window.location.href;
+
+                let param = base.split("#");
+
+                if (param.length < 4 || param[param.length - 1] == null || param[param.length - 2] == null || param[param.length - 3] == null) {
+                    alert("请登录");
+                    window.location.href = "login.html";
+                }
+                
+
+                // 静态存储解决异步undefined问题
+                this.data.user_id = param[param.length - 3];
+                this.data.shop_id = param[param.length - 2];
+                this.data.item_id = param[param.length - 1];
+
+                if (this.user_id == "" || this.shop_id == "" || this.item_id == "") {
+                    alert("请登录");
+                    window.location.href = "login.html";
+                }
+
+                this.setState({
+                    user_id: param[param.length - 3],
+                    shop_id: param[param.length - 2],
+                    item_id: param[param.length - 1]
+                });
+
+                // 请求商品详情
+                axios.get(TEST + "/main/get/item/detail/" + this.data.item_id).then((response) => {
+                    this.setState({
+                        data: response.data.data,
+                        ready: true,
+                        business: response.data.business
+                    });
+                    
+                    // bs name
+                    $("#business_name").html(response.data.business.name);
+                });
+                
+                // 请求购物车详情
+                axios.get(TEST + "/main/item/all/" + getShopId() + "/" + getUserId()).then((response) => {
+
+                    this.setState({
+                        cartId: response.data.cartId
+                    })
+                });
+
+            }
+
+            // 提交订单
+            async postOrder(e) {
+
+                if (this.data.user_id == null || this.data.user_id == undefined || this.data.user_id == "") {
+                    alert("请登录");
+                    window.location.href = "login.html";
+                }
+                else {
+                    let num = $("#item_number").val();
+
+                    let items = [];
+                    for (let i = 0; i < num; i++) {
+
+                        items.push(axios.get(TEST + "/main/add/item/" + this.state.item_id + "/" + this.state.cartId).then((response) => {
+                            console.log("cart:" + i);
+                            console.log(response);
+                        }));
+
+                    }
+
+                    // wait request
+                    await Promise.all(items);
+
+                    // render page
+                    for (let i = 0; i < num; i++) {
+                        addIntoCart(this.state.item_id, this.state.data.name, this.state.data.price);
+                    }
+
+                }
+
+            }
+
+            render() {
+
+                if (!this.state.ready) {
+                    return <div> 数据请求中... </div>
+                }
+                else{
+                    let result = [];
+                    result.push(<div className="restaurant-detail-thumb" key="detail_img">
+                                    <img className="brd-rd3" src={this.state.data.img} alt="restaurant-detail-big-img1-1.jpg" itemProp="image"></img>
+                                </div>);
+                    result.push(<div className="restaurant-detail-title" key="detail_info">
+                                <h1 itemProp="headline">{this.state.data.name}</h1>
+                                <div className="info-meta">
+                                    <span>月售 64</span>
+                                    <span><a href="#" title="" itemProp="url">赞 6</a></span>
+                                </div>
+                                <span className="price">¥{this.state.data.price}</span>
+                                <div className="qty-wrap">
+                                    <input className="form-control num-input" type="number"  min="0" max="100" step="1" defaultValue="1" id="item_number"></input>
+                                </div>
+                                <a className="brd-rd3" onClick={this.postOrder.bind(this)} href="javascript:void(0)" title="加入购物车" itemProp="url">加入购物车</a>
+                                </div>);
+                        
+                    return result;
+                }
+            }
+        }
+
+        // main
+        ReactDOM.render(
+        <ItemDetail />,
+        document.getElementById('item'));
+
+
+    </script>
+
+    <script>
+        var count = 0;
+        var cartId = null;
+        var dataList = null;
+
+        var sum = 0;
+
+        $(document).ready(() => {
+            
+            // 请求购物车详情
+            axios.get(TEST + "/main/item/all/" + getShopId() + "/" + getUserId()).then((response) => {
+                count = response.data.data.length;
+                dataList = response.data.data;
+
+                cartId = response.data.cartId;
+
+                let res = "";
+
+                let i = 0;
+                for (let item of dataList) {
+                    sum += item.price;
+                    res += $("#cart-item-template").render({
+                        id: item.id,
+                        name: item.name,
+                        price: item.price
+                    });
+                }
+                
+                $("#cart").html(res);
+                updateSum();
+            });
+        });
+
+        function updateSum() {
+            $("#sub_check").html(sum);
+            $("#main_check").html(sum);
+        }
+
+        function addIntoCart(item_id, item_name, item_price) {
+            let base = $('#cart').html();
+            let final = base +  $('#cart-item-template').render({
+                id: item_id,
+                name: item_name,
+                price: item_price
+            });
+            sum += item_price;
+            $("#cart").html(final);
+            updateSum();
+        }
+
+        function removeFromCart(e) {
+            let id = $(e).attr("key");
+
+
+            let pri = parseFloat($("#" + id).attr("price"))
+
+            sum -= pri;
+            console.log(sum);
+            $("#" + id).remove();
+            // 请求移出购物车
+            axios.get(TEST + "/main/cart/remove/item/" + cartId + "/" + id).then((response) => {
+                console.log(response);
+            });
+            updateSum();
+        }
+        
+
+        function submit() {
+            window.location.href = "confirm.html#" + getUserId() + "#" + cartId;      
+            
+            
+            
+            // axios.get(TEST + "/main/post/order/" + cartId).then((response) => {
+
+            // });
+        }
+    </script>
+
+    <script type="text/x-jsrender" id="cart-item-template">
+        <li id="{{:id}}" price="{{:price}}">
+            <div class="dish-name">
+                <i><a key="{{:id}}" href="javascript: void(0)" onclick="removeFromCart(this)">X</a></i>
+                <h6 itemprop="headline">{{:name}} </h6>
+                <span class="price">¥{{:price}}</span>
+            </div>
+        </li>
+    </script>
+
+</body>
+
+</html>

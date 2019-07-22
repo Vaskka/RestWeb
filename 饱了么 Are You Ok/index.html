@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>主页</title>
+    <link rel="shortcut icon" href="assets/images/叶片.png" type="image/x-icon">
+    
+
+    <link rel="stylesheet" href="assets/css/icons.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/red-color.css">
+    <link rel="stylesheet" href="assets/css/yellow-color.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+                        
+
+    <!-- react and axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+    h2.redfont {
+        color: #EA1B25;
+    }
+    
+    </style>
+
+</head>
+<body itemscope>
+    <main>
+        <div class="preloader">
+            <div id="cooking">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div id="area">
+                    <div id="sides">
+                        <div id="pan"></div>
+                        <div id="handle"></div>
+                    </div>
+                    <div id="pancake">
+                        <div id="pastry"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        <!--顶端索引-->    
+        <header class="stick">
+            <div class="topbar">
+                <div class="container">
+                    <div class="topbar-register">
+                        <a href="login.html" title="Login" id="title_login" itemprop="url">登录注册</a> 
+                    </div>
+                    <div class="social1">
+                        <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                        <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>                
+            </div><!-- Topbar -->
+            <div class="logo-menu-sec">
+                <div class="container">
+                    <div class="logo"><h1 itemprop="headline"><a href="主页.html" title="主页" itemprop="url"><img src="assets/images/logo1.png" alt="logo.png" itemprop="image"></a></h1></div>
+                    <nav>
+                        <div class="menu-sec">
+                            <ul>
+                                <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">Are You Ok</span><a href="主页.html">主页</a></li>
+								<li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">Are You Ok</span><a href="商家列表.html">商家列表</a></li>
+                            </ul>
+                        </div>
+                    </nav><!-- Navigation -->
+                </div>
+            </div><!-- Logo Menu Section -->
+        </header><!-- Header -->
+
+        
+
+        <section>
+            <div class="block">
+                <div style="background-image: url(assets/images/topbg.jpg);" class="fixed-bg"></div>
+                <div class="restaurant-searching text-center">
+                    <div class="restaurant-searching-inner">
+                        <h2 itemprop="headline">Are U Ok</h2><br/>
+                        <h2  class="redfont">饱了么</h2><br/>
+                        <h2 itemprop="headline">外卖订餐平台</h2>
+                        <div class="funfacts">
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    <div class="fact-box">
+                                        <i class="brd-rd50"><img src="assets/images/resource/fact-icon1.png" alt="fact-icon1" itemprop="image"></i>
+                                        <div class="fact-inner">
+                                            <strong><span class="counter" id="shop">137</span></strong>
+                                            <h5>入驻商家</h5>
+                                        </div>
+                                    </div><!-- Fact Box -->
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    <div class="fact-box">
+                                        <i class="brd-rd50"><img src="assets/images/resource/fact-icon2.png" alt="fact-icon2" itemprop="image"></i>
+                                        <div class="fact-inner">
+                                            <strong><span class="counter" id="obj">158</span></strong>
+                                            <h5>服务对象</h5>
+                                        </div>
+                                    </div><!-- Fact Box -->
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    <div class="fact-box">
+                                        <i class="brd-rd50"><img src="assets/images/resource/fact-icon3.png" alt="fact-icon3" itemprop="image"></i>
+                                        <div class="fact-inner">
+                                            <strong><span class="counter" id="trans">659</span></strong>
+                                            <h5>交易次数</h5>
+                                        </div>
+                                    </div><!-- Fact Box -->
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    <div class="fact-box">
+                                        <i class="brd-rd50"><img src="assets/images/resource/fact-icon4.png" alt="fact-icon4" itemprop="image"></i>
+                                        <div class="fact-inner">
+                                            <strong><span class="counter" id="user">235</span></strong>
+                                            <h5>长期用户</h5>
+                                        </div>
+                                    </div><!-- Fact Box -->
+                                </div>
+                        </div><!-- Fun Facts -->
+                    </div>
+                    <img class="left-scooty-mockup" src="assets/images/resource/restaurant-mockup1.png" alt="restaurant-mockup1.png" itemprop="image">
+                    <img class="bottom-clouds-mockup" src="assets/images/resource/clouds.png" alt="clouds.png" itemprop="image">
+                </div><!-- Restaurant Searching -->
+            </div>
+        </section>
+
+        <section>
+            <div class="block remove-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="title1-wrapper text-center">
+                                <div class="title1-inner">
+                                    <span>美食，享你所想</span>
+                                    <h2 itemprop="headline">优质餐厅</h2>
+                                
+                                </div>
+                            </div>
+                            <div class="top-restaurants-wrapper">
+                                <ul class="restaurants-wrapper style2">
+                                    <li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 1" itemprop="url"><img src="assets/images/resource/top-restaurant1.png" alt="top-restaurant1.png" itemprop="image"></a></div></li>
+                                    <li class="wow bounceIn" data-wow-delay="0.4s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 2" itemprop="url"><img src="assets/images/resource/top-restaurant2.png" alt="top-restaurant2.png" itemprop="image"></a></div></li>
+                                    <li class="wow bounceIn" data-wow-delay="0.6s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 3" itemprop="url"><img src="assets/images/resource/top-restaurant3.png" alt="top-restaurant3.png" itemprop="image"></a></div></li>
+                                    <li class="wow bounceIn" data-wow-delay="0.8s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 4" itemprop="url"><img src="assets/images/resource/top-restaurant4.png" alt="top-restaurant4.png" itemprop="image"></a></div></li>
+                                    <li class="wow bounceIn" data-wow-delay="1s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 5" itemprop="url"><img src="assets/images/resource/top-restaurant5.png" alt="top-restaurant5.png" itemprop="image"></a></div></li>
+                                    <li class="wow bounceIn" data-wow-delay="1.2s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 5" itemprop="url"><img src="assets/images/resource/top-restaurant6.png" alt="top-restaurant6.png" itemprop="image"></a></div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- top resturents -->
+
+		    <section>
+            <div class="block grayish low-opacity ">
+                <div class="fixed-bg" style="background-image: url(assets/images/pattern.png)"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="filters-wrapper">
+                                <div class="title1-wrapper text-center">
+                                    <div class="title1-inner">
+                                        <span>全部商家</span>
+                                        <h2 itemprop="headline">美味随时拥有</h2>
+                                    </div>
+                                </div>
+                                <div class="filters-inner">
+                                    <div class="row">
+                                        <div class="masonry" id="shops">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Filters Wrapper -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="block top-padd80 bottom-padd80 dark-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="footer-data">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
+                                            <div class="logo"><h1 itemprop="headline"><a href="主页.html" title="主页" itemprop="url"><img src="assets/images/logo.png" alt="logo.png" itemprop="image"></a></h1></div>
+                                            <p itemprop="description">便捷的外卖订餐平台，您的最佳选择。</p>
+                                            <div class="social2">
+                                                <a class="brd-rd50" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
+                                                <a class="brd-rd50" href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                                <a class="brd-rd50" href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
+                                                <a class="brd-rd50" href="#" title="Pinterest" itemprop="url" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                            <h4 class="widget-title" itemprop="headline">联系我们</h4>
+                                            <ul>
+                                               <li><i class="fa fa-map-marker"></i> 四川省, 成都市, 双流区, 四川大学.</li>
+                                               <li><i class="fa fa-phone"></i> (0000) 0000 0000 000</li>
+                                               <li><i class="fa fa-envelope"></i> <a href="#" title="" itemprop="url">0000@xxx.com</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Footer Data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- footer -->
+    </main><!-- Main Wrapper -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script type="text/babel">
+
+        const MAIN = "https://vaskka.com/backend";
+
+        const TEST = "http://localhost:8000";
+
+        class MainShopList extends React.Component {
+
+
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                ready: false
+            }
+
+            axios.get(TEST + "/main/get/main/business").then((response) => {
+                this.setState({
+                    data: response.data.data,
+                    ready: true
+                });
+
+                
+                console.log(this.state);
+            });
+            
+        }
+        componentDidMount = () => {
+
+            let main_url = window.location.href;
+            let split_r = main_url.split("#");
+
+            let user_index = split_r.length - 1;
+
+            if (split_r.length < 2) {
+                this.setState({user_id: null});
+            }
+            else {
+                this.setState({user_id: split_r[user_index]});
+                $("#title_login").html("注销")
+            }
+            
+        }
+
+        // 进入商家
+        clickShop(shopId, e) {
+            let main_url = window.location.href;
+            let split_r = main_url.split("#");
+
+            if (!this.state.user_id) {
+
+                alert("请登录");
+                window.location.href = "login.html";
+            }
+            else {
+                window.location.href = "shop_detail.html" + "#" + this.state.user_id + "#" + shopId;
+            }
+
+            console.log(shopId);
+            console.log(e);
+        }
+
+        
+        render() {
+
+            if (!this.state.ready) {
+                return <div> 数据请求中... </div>
+            }
+
+            let result = [];
+
+            for (let i = 0; i < this.state.data.length; i++) {
+                result.push(<div className="col-md-6 col-sm-6 col-lg-6 filter-item" key={this.state.data[i].id}>
+                        <div className="featured-restaurant-box style2 brd-rd12 wow fadeIn" data-wow-delay="0.1s">
+                            <div className="featured-restaurant-thumb">
+                                <a onClick={this.clickShop.bind(this, this.state.data[i].id)}  href="javascript:void(0)" title="" itemProp="url"><img src={this.state.data[i].headimg} alt="most-popular-img1-1.png" itemProp="image"></img></a>
+                            </div>
+                            <div className="featured-restaurant-info">
+                                <h4 itemProp="headline"><a onClick={this.clickShop.bind(this, this.state.data[i].id)} title="" itemProp="url">{this.state.data[i].name}</a></h4>
+                                <ul className="post-meta">
+                                    <li><i className="fa fa-check-circle-o"></i>￥20起送</li>
+                                    <li><i className="fa fa-check-circle-o"></i> 30min</li>
+                                    <li><i className="fa fa-check-circle-o"></i>线上支付</li>
+                                </ul>
+                                <span className="post-likes style2 red-clr"><i className="fa fa-jpy"></i> 12</span>
+                                <a className="brd-rd5" href="javascript:void(0)" onClick={this.clickShop.bind(this, this.state.data[i].id)} title="Order Online">进入商家</a>
+                            </div>
+                        </div>
+                    </div>);
+                    
+            }
+            
+            return result;
+
+        }
+    }
+    
+    // main
+    ReactDOM.render(
+    <MainShopList />,
+    document.getElementById('shops'));
+    </script>
+
+    <script>
+        $(document).ready(() => {
+            axios.get(TEST + "/main/get/index/info").then((response) => {
+                $("#shop").html(response.data.shop);
+                $("#obj").html(response.data.object);
+                $("#trans").html(response.data.trans);
+                $("#user").html(response.data.user);
+            });
+        })
+    </script>
+</body>	
+</html>

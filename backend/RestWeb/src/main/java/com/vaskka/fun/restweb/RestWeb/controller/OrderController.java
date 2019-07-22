@@ -94,4 +94,26 @@ public class OrderController {
 
         return map;
     }
+
+    @ApiOperation(value = "获取某个指定订单")
+    @ResponseBody
+    @RequestMapping(value = "/order/list/{userId}", method = RequestMethod.GET)
+    public Map<String, Object> getOrderList(@PathVariable(value = "userId") String userId) {
+        Map<String, Object> map = new HashMap<>();
+
+        try {
+            map.put("data", orderService.getOrders(userId));
+        }
+        catch (RestWebRuntimeException e) {
+
+            map.put("code", 1);
+            map.put("msg", e.getMessage());
+            return map;
+        }
+
+        map.put("code", 0);
+
+        return map;
+    }
+
 }

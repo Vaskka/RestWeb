@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>确认订单</title>
+		<link rel="shortcut icon" href="assets/images/叶片.png" type="image/x-icon">
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="assets/css/public.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="assets/css/base.css" />
+		<script type="text/javascript" src="assets/js/jquery_cart.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/checkOut.css" />
+
+		<link rel="stylesheet" href="assets/css/icons.min.css">
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="assets/css/red-color.css">
+		<link rel="stylesheet" href="assets/css/yellow-color.css">
+		<link rel="stylesheet" href="assets/css/responsive.css">
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+		<style>
+			.order-total li{
+				top: 20px;
+			}
+
+			.confrm-order-btn  a{
+				width: 120px;
+			}
+
+			.qrcode {
+				margin-left: -25px;
+			}
+
+			.add-address {
+				display: none;
+				position: absolute;
+				width: 700px;
+
+				height: 500px;
+
+				background-color: aliceblue;
+				border-radius: 7px;
+
+				left:50%;
+				margin-left: -350px;
+				top: 30%;
+				z-index: 888;
+			}
+
+			.add-address input {
+				width: 80%;
+
+				margin: 0 auto;
+			}
+
+			.address-ok {
+				float: right;
+				margin-right: 100px;
+				margin-top: 100px;
+			}
+
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="fixed-bg" style="background-image: url(assets/images/parallax1.jpg);"></div>
+		<div class="payment-popup-inner" style="background-image: url(assets/images/payment-popup-bg.jpg);">
+			<h4 class="payment-popup-title" itemprop="headline">确认订单</h4>
+			<div class="payment-popup-info">
+				<form class="payment-popup-info-inner">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-lg-6">
+							<ul class="list-group" id="items">
+								<!-- 物品list -->
+
+
+							</ul>
+						</div>
+						<div class="col-md-6 col-sm-6 col-lg-6">
+							<div class="form-group">
+								<select name="address" id="address" class="form-control">
+									<!-- 地址list -->
+									<option value="1">1</option>
+								</select>
+
+								<button class="btn btn-success" onclick="existPage()"> 添加新地址</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="confrm-order red-bg">
+				<ul class="order-total">
+					<li><span>总价</span> <i>￥<span id="main_price">0</span></i></li>
+				</ul>
+				<div class="confrm-order-btn">
+					<a class="a.thanks-close" href="javascript:void(0)" onclick="cost()" title="" itemprop="url">支付</a>
+				</div>
+			</div>
+		</div>
+		<div class="payment-popup-wrapper thanks-message text-center">
+			<div class="payment-popup-inner red-bg">
+				<img class="qrcode"  width="100px" height="100px" id="qrcode" src="assets/images/resource/thanks-message-mockup.png" alt="thanks-message-mockup.png" itemprop="image">
+				<h3 itemprop="headline">您的订单已提交, 请及时支付</h3>
+				<p itemprop="description">您可在
+					<a href="javascript:void(0)" onclick="myorder()" title="" itemprop="url"><u>我的订单</u></a>查看详情或编辑评论</p>
+				
+			</div>
+		</div>
+
+		<div class="add-address">
+			<form >
+				<div class="form-group">
+						<h2 for="exampleInputEmail1">请填写新地址:</h2>
+						<textarea type="text" class="form-control" id="new-address"></textarea>
+						<button class="btn btn-success address-ok" onclick="addNewAddress()">ok</button>
+				</div>
+			</form>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/plugins.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script src="assets/js/unslider.min.js" type="text/javascript"></script>
+
+		<script>
+
+			var orderId = null;
+
+			let base = window.location.href;
+
+			let param = base.split("#");
+
+			if (param.length < 3 || param[param.length - 1] == null || param[param.length - 2] == null) {
+				alert("请登录");
+				window.location.href = "login.html";
+			}
+
+			var userId = param[param.length - 2];
+			var cartId = param[param.length - 1];
+			$(document).ready(() => {
+				console.log(userId);
+				console.log(cartId);
+			});
+
+			function cost() {
+				axios.get(TEST + "/main/trans/" + orderId).then((response) => {
+					$("#qrcode").attr("src", "data:image/png;base64," + response.data.qrcodeBase64);
+				});
+			}
+
+			function myorder() {
+				window.location.href = "order_detail.html#" + userId + "#" + orderId;
+			}
+
+			function addNewAddress() {
+				$("#form-control").html($("#form-control").html() + '<option value="add" selected>' + $("new-address") + ' </option>')
+				$(".add-address").fadeToggle();
+			}
+
+			function existPage() {
+				$(".add-address").fadeToggle();
+			}
+		</script>
+
+		<script type="text/babel">
+			
+			const MAIN = "https://vaskka.com/backend";
+
+			const TEST = "http://localhost:8000";
+
+			class Address extends React.Component {
+
+				constructor(props) {
+					super(props)
+					this.state = {
+						ready: false
+					}
+				}
+
+				componentDidMount = () => {
+					axios.get(TEST + "/main/info/address/" + userId).then((response) => {
+						this.setState({
+							address: response.data.data,
+							ready: true
+						});
+					});
+				}
+
+				render() {
+
+					if (!this.state.ready) {
+						return <option>请求数据中...</option>
+					}
+
+					let i = 0;
+					return this.state.address.map(item => <option key={i++} defaultValue={item}>{item}</option>);
+					
+				}
+			}
+			
+
+			class Item extends React.Component {
+
+				constructor(props) {
+					super(props)
+					this.state = {
+						ready: false
+					}
+				}			
+
+				componentDidMount = () => {
+					axios.get(TEST + "/main/post/order/" + cartId).then((response) => {
+						console.log(response);
+
+						this.setState({
+							data: response.data.data,
+							ready: true
+						});
+
+						orderId = response.data.data.orderId;
+						document.getElementById("main_price").innerHTML = response.data.data.price;
+					});
+				}
+
+				render() {
+
+					if (!this.state.ready) {
+						return <div>请求数据中...</div>
+					}
+
+					let i = 0;
+					return this.state.data.items.map(item => <li key={i++} className="list-group-item"> {item.name} </li>);
+					
+				}
+			}
+
+			// main
+			ReactDOM.render(
+			<Address />,
+			document.getElementById('address'));
+
+			ReactDOM.render(
+			<Item />,
+			document.getElementById('items'));
+
+		</script>
+	</body>

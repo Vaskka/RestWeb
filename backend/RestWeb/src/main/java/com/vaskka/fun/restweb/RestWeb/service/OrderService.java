@@ -121,4 +121,9 @@ public class OrderService {
 
         return middle;
     }
+
+
+    public List<OrderEntity> getOrders(String userId) {
+        return orderDao.findByCreatorid(userId);
+    }
 }
