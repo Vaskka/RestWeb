@@ -66,12 +66,8 @@
                 <div class="container">
                     <div class="logo"><h1 itemprop="headline"><a href="index.html" title="主页" itemprop="url"><img src="assets/images/logo1.png" alt="logo.png" itemprop="image"></a></h1></div>
                     <nav>
-                        <div class="menu-sec">
-                            <ul>
-                                <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">Are You Ok</span><a href="主页.html">主页</a></li>
-								<li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">Are You Ok</span><a href="商家列表.html">商家列表</a></li>
-                    
-                            </ul>
+                        <div class="menu-sec" id="common_header">
+
                         
                         </div>
                     </nav><!-- Navigation -->
@@ -297,11 +293,51 @@
 
         }
     }
+
+
+    class CommonHeader extends React.Component {
+
+        constructor(props) {
+            super(props);
+            this.data = {
+                user_id: null
+            }
+            let main_url = window.location.href;
+            let split_r = main_url.split("#");
+
+            let user_index = split_r.length - 1;
+
+            if (split_r.length < 2) {
+                this.data.user_id = null;
+            }
+            else {
+                this.data.user_id = split_r[user_index];
+            }
+        }
+
+        render() {
+            return (
+                <ul>
+                    <li className="menu-item-has-children"><span className="red-clr">Are You Ok</span><a href={"index.html#" + this.data.user_id}>主页</a></li>
+                    <li className="menu-item-has-children"><span className="red-clr">Are You Ok</span><a href={"shop_list.html#" + this.data.user_id}>商家列表</a></li>
+        
+                </ul>
+            );
+        }
+    }
+
     
     // main
     ReactDOM.render(
     <MainShopList />,
     document.getElementById('shops'));
+
+
+
+    ReactDOM.render(
+    <CommonHeader />,
+    document.getElementById('common_header'));
+
     </script>
 </body>	
 </html>

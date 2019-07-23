@@ -204,9 +204,9 @@
                         <div class="menu-sec">
                             <ul>
                                 <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span
-                                            class="red-clr">Are You Ok</span><a href="index.html">主页</a></li>
+                                            class="red-clr">Are You Ok</span><a href="index.html" id="indexH">主页</a></li>
                                 <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span
-                                            class="red-clr">Are You Ok</span><a href="shop_list.html">商家列表</a></li>
+                                            class="red-clr">Are You Ok</span><a href="shop_list.html" id="indexS">商家列表</a></li>
                             </ul>
                         
                         </div>
@@ -232,7 +232,7 @@
         <div class="bread-crumbs-wrapper">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="主页.html" title="主页" itemprop="url">主页</a></li>
+                    <li class="breadcrumb-item"><a href="index.html" title="主页" id="indexM" itemprop="url">主页</a></li>
                     <li class="breadcrumb-item active">订单详情</li>
                 </ol>
             </div>
@@ -291,7 +291,7 @@
                                     <div class="col-md-3 col-sm-6 col-lg-3">
                                         <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
                                             <div class="logo">
-                                                <h1 itemprop="headline"><a href="主页.html" title="主页" itemprop="url"><img
+                                                <h1 itemprop="headline"><a href="index.html" title="主页" itemprop="url"><img
                                                             src="assets/images/logo.png" alt="logo.png"
                                                             itemprop="image"></a></h1>
                                             </div>
@@ -389,6 +389,10 @@
                     user_id: param[param.length - 2],
                     order_id: param[param.length - 1]
                 });
+
+                $("#indexH").attr("href", "index.html#" + this.state.user_id);
+                $("#indexS").attr("href", "shop_list.html#" + this.state.user_id);
+                $("#indexM").attr("href", "index.html#" + this.state.user_id);
 
                 // 请求全部商品
                 axios.get(TEST + "/main/order/detail/" + this.data.order_id).then((response) => {

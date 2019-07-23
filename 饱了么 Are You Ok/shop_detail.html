@@ -67,13 +67,8 @@
                                     src="assets/images/logo1.png" alt="logo.png" itemprop="image"></a></h1>
                     </div>
                     <nav>
-                        <div class="menu-sec">
-                            <ul>
-                                <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span
-                                            class="red-clr">Are You Ok</span><a href="index.html">主页</a></li>
-                                <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span
-                                            class="red-clr">Are You Ok</span><a href="shop_list.html">商家列表</a></li>
-                            </ul>
+                        <div class="menu-sec" id="common_header">
+
                             <!-- <a class="red-bg brd-rd4" href="#" title="注册商家" itemprop="url">注册商家</a> -->
                         </div>
                     </nav><!-- Navigation -->
@@ -103,7 +98,7 @@
         <div class="bread-crumbs-wrapper">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="主页.html" title="主页" itemprop="url">主页</a></li>
+                    <li class="breadcrumb-item">主页</li>
                     <li class="breadcrumb-item active">商家详情</li>
                 </ol>
             </div>
@@ -297,10 +292,50 @@
             }
         }
 
+        class CommonHeader extends React.Component {
+
+            constructor(props) {
+
+                this.data = {
+                    user_id: null,
+                    shop_id: null
+                }
+
+                let base = window.location.href;
+
+                let param = base.split("#");
+
+                if (param.length < 3 || param[param.length - 1] == null || param[param.length - 2] == null) {
+                    alert("请登录");
+                    window.location.href = "login.html";
+                }
+                
+                console.log(param);
+
+                // 静态存储解决异步undefined问题
+                this.data.user_id = param[param.length - 2];
+                this.data.shop_id = param[param.length - 1];
+            }
+
+            render() {
+                return (
+                    <ul>
+                        <li className="menu-item-has-children"><span className="red-clr">Are You Ok</span><a href={"index.html#" + this.data.user_id}>主页</a></li>
+                        <li className="menu-item-has-children"><span className="red-clr">Are You Ok</span><a href={"shop_list.html#" + this.data.user_id}>商家列表</a></li>
+
+                    </ul>
+                );
+            }
+        }
+
         // main
         ReactDOM.render(
         <MainItemList />,
         document.getElementById('items'));
+
+        ReactDOM.render(
+        <MainItemList />,
+        document.getElementById('common_header'));
 
     </script>
 
