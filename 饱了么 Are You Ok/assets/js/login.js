@@ -123,7 +123,7 @@ $(function() {
 
 MAIN = "https://vaskka.com/backend";
 
-TEST = "http://localhost:8000"
+TEST = MAIN
 
 function register() {
    let phone = $("#regphone").val();
