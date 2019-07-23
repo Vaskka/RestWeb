@@ -138,7 +138,7 @@ function register() {
       }
       else {
          alert("电话号码已经被使用，请重试");
-      }
+      } 
 
   });
 }

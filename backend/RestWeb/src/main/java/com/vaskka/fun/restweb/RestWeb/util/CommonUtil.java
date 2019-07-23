@@ -4,6 +4,7 @@ import com.vaskka.fun.restweb.RestWeb.entity.ItemEntity;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class CommonUtil {
 
-    private static final String pattern = "yyyy-MM-dd HH:mm:ss";
+    public static final String pattern = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * 获取本地时间String
@@ -23,6 +24,10 @@ public class CommonUtil {
         Calendar cal = java.util.Calendar.getInstance(java.util.Locale.CHINA);
         SimpleDateFormat sf = new SimpleDateFormat(pattern);
         return sf.format(cal.getTime());
+    }
+
+    public static Timestamp getNowTimestamp() {
+        return Timestamp.valueOf(getNowTime());
     }
 
     /**
